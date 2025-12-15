@@ -1,0 +1,23 @@
+{
+  "name": "perioskoup_landing_doctor",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Perioskoup - AI Dental Companion Landing Page",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "playwright": "^1.57.0",
+    "vite": "^7.2.7"
+  },
+  "dependencies": {
+    "motion": "^12.23.26"
+  },
+  "main": "main.js"
+}

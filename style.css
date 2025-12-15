@@ -1,0 +1,804 @@
+/* ========================================
+   MOTION DESIGN TOKENS
+   ======================================== */
+
+:root {
+  /* Duration Tokens */
+  --duration-instant: 100ms;
+  --duration-fast: 200ms;
+  --duration-medium: 400ms;
+  --duration-slow: 600ms;
+  --duration-slower: 800ms;
+
+  /* Easing Tokens */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+
+  /* Stagger Tokens */
+  --stagger-fast: 50ms;
+  --stagger-medium: 100ms;
+  --stagger-slow: 150ms;
+}
+
+/* Base styles adjustments */
+body {
+  font-family: 'Nunito', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ========================================
+   NOTIFICATION WAVE - Two-Way Communication
+   Patient notifications (mint) wave left
+   Dentist notifications (navy) wave right
+   ======================================== */
+
+.interaction-cards {
+  z-index: 5;
+}
+
+.interaction-card {
+  opacity: 0;
+}
+
+/* Base card styles */
+.card-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ===== PATIENT CARDS (Mint/Teal) ===== */
+.card-inner-patient {
+  background: #DFF7F3;
+  color: #167E73;
+  border: 1px solid #BFEDE5;
+  box-shadow: 0 4px 20px -4px rgba(22, 126, 115, 0.15);
+}
+
+.card-inner-patient svg {
+  color: #167E73;
+  fill: #167E73;
+  stroke: #167E73;
+}
+
+/* ===== DENTIST CARDS (Navy/Slate) ===== */
+.card-inner-dentist {
+  background: #E6EEF7;
+  color: #1F3B57;
+  border: 1px solid #CFE0F2;
+  box-shadow: 0 4px 20px -4px rgba(31, 59, 87, 0.15);
+}
+
+.card-inner-dentist svg {
+  color: #1F3B57;
+  fill: #1F3B57;
+}
+
+/* ===== WAVE ANIMATIONS ===== */
+.interaction-card {
+  will-change: transform, opacity;
+}
+
+/* Patient cards - wave left */
+.card-p1 { animation: waveLeft1 3.5s linear infinite; }
+.card-p2 { animation: waveLeft2 3.5s linear infinite 1.2s; }
+.card-p3 { animation: waveLeft3 3.5s linear infinite 2.4s; }
+
+/* Dentist cards - wave right */
+.card-d1 { animation: waveRight1 3.5s linear infinite 0.6s; }
+.card-d2 { animation: waveRight2 3.5s linear infinite 1.8s; }
+.card-d3 { animation: waveRight3 3.5s linear infinite 3s; }
+
+@keyframes waveLeft1 {
+  0% { transform: translate3d(0, 0, 0); opacity: 0; }
+  10% { opacity: 0.95; }
+  90% { opacity: 0.1; }
+  100% { transform: translate3d(-150px, -65px, 0); opacity: 0; }
+}
+
+@keyframes waveLeft2 {
+  0% { transform: translate3d(0, 0, 0); opacity: 0; }
+  10% { opacity: 0.95; }
+  90% { opacity: 0.1; }
+  100% { transform: translate3d(-160px, 15px, 0); opacity: 0; }
+}
+
+@keyframes waveLeft3 {
+  0% { transform: translate3d(0, 0, 0); opacity: 0; }
+  10% { opacity: 0.95; }
+  90% { opacity: 0.1; }
+  100% { transform: translate3d(-140px, 70px, 0); opacity: 0; }
+}
+
+@keyframes waveRight1 {
+  0% { transform: translate3d(0, 0, 0); opacity: 0; }
+  10% { opacity: 0.95; }
+  90% { opacity: 0.1; }
+  100% { transform: translate3d(200px, -85px, 0); opacity: 0; }
+}
+
+@keyframes waveRight2 {
+  0% { transform: translate3d(0, 0, 0); opacity: 0; }
+  10% { opacity: 0.95; }
+  90% { opacity: 0.1; }
+  100% { transform: translate3d(220px, 25px, 0); opacity: 0; }
+}
+
+@keyframes waveRight3 {
+  0% { transform: translate3d(0, 0, 0); opacity: 0; }
+  10% { opacity: 0.95; }
+  90% { opacity: 0.1; }
+  100% { transform: translate3d(180px, 95px, 0); opacity: 0; }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .interaction-card {
+    animation: none;
+    opacity: 0.7;
+  }
+}
+
+/* Cards are hidden on mobile via HTML class */
+
+/* Scroll Animation States */
+.scroll-item {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  filter: blur(4px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-item.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* Gradient for Cards (Light Mode) */
+.card-gradient-border {
+  position: relative;
+  background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(135deg, #3bab9f, #4ecdc4) border-box;
+  border: 1px solid transparent;
+}
+
+/* Flashlight/Glow Effect */
+.glow-card:hover::before {
+  opacity: 1;
+}
+
+.glow-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(62, 205, 196, 0.1),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Tilted Phone Styling */
+.hero-phone {
+  transform: rotate(-6deg) perspective(1000px) rotateY(-12deg) rotateX(5deg);
+  filter: drop-shadow(20px 40px 60px rgba(29, 52, 73, 0.25));
+  transition: transform 0.5s ease-out;
+}
+
+.hero-phone:hover {
+  transform: rotate(0deg) perspective(1000px) rotateY(0deg) rotateX(0deg);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f2fce3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1d3449;
+  border-radius: 4px;
+}
+
+/* Gradient Text Utility */
+.text-gradient {
+  background: linear-gradient(135deg, #1d3449 0%, #3bab9f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ========================================
+   HERO ENTRANCE ANIMATIONS
+   ======================================== */
+
+@keyframes hero-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+    filter: blur(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes hero-reveal-scale {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Hero elements start hidden - JS handles animations */
+.hero-badge,
+.hero-headline,
+.hero-subhead,
+.hero-cta,
+.hero-micro,
+.hero-phone-container {
+  opacity: 0;
+}
+
+/* Keep elements visible after JS animation completes */
+.js-animated {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+/* Fallback: show content if JS fails to load */
+.no-js .hero-badge,
+.no-js .hero-headline,
+.no-js .hero-subhead,
+.no-js .hero-cta,
+.no-js .hero-micro,
+.no-js .hero-phone-container,
+.no-js .scroll-item {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* ========================================
+   FLOATING GRADIENT ORBS
+   ======================================== */
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(1.05);
+  }
+}
+
+.gradient-orb {
+  animation: float 20s ease-in-out infinite;
+}
+
+.gradient-orb-2 {
+  animation: float-reverse 25s ease-in-out infinite;
+}
+
+/* ========================================
+   ENHANCED CARD HOVER EFFECTS
+   ======================================== */
+
+.feature-card,
+.glow-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+.feature-card:hover,
+.glow-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(29, 52, 73, 0.15);
+}
+
+/* ========================================
+   MAGNETIC BUTTON EFFECT
+   ======================================== */
+
+.magnetic-btn {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ========================================
+   ANIMATED LINK UNDERLINE
+   ======================================== */
+
+.animated-link {
+  position: relative;
+}
+
+.animated-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #3BAB9F, #4ECDC4);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animated-link:hover::after {
+  width: 100%;
+}
+
+/* ========================================
+   STAGGER DELAY UTILITIES
+   ======================================== */
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+/* ========================================
+   SMOOTH SCROLL BEHAVIOR
+   ======================================== */
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* ========================================
+   MODAL ANIMATIONS
+   ======================================== */
+
+#signup-modal {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#signup-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#signup-modal .modal-backdrop {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#signup-modal.active .modal-backdrop {
+  opacity: 1;
+}
+
+#signup-modal .modal-content {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#signup-modal.active .modal-content {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Body scroll lock when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Font Classes */
+.font-geist {
+  font-family: 'Geist', sans-serif !important;
+}
+.font-roboto {
+  font-family: 'Roboto', sans-serif !important;
+}
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif !important;
+}
+.font-poppins {
+  font-family: 'Poppins', sans-serif !important;
+}
+.font-playfair {
+  font-family: 'Playfair Display', serif !important;
+}
+.font-instrument-serif {
+  font-family: 'Instrument Serif', serif !important;
+}
+.font-merriweather {
+  font-family: 'Merriweather', serif !important;
+}
+.font-bricolage {
+  font-family: 'Bricolage Grotesque', sans-serif !important;
+}
+.font-jakarta {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+.font-manrope {
+  font-family: 'Manrope', sans-serif !important;
+}
+.font-space-grotesk {
+  font-family: 'Space Grotesk', sans-serif !important;
+}
+.font-work-sans {
+  font-family: 'Work Sans', sans-serif !important;
+}
+.font-pt-serif {
+  font-family: 'PT Serif', serif !important;
+}
+.font-geist-mono {
+  font-family: 'Geist Mono', monospace !important;
+}
+.font-space-mono {
+  font-family: 'Space Mono', monospace !important;
+}
+.font-quicksand {
+  font-family: 'Quicksand', sans-serif !important;
+}
+.font-nunito {
+  font-family: 'Nunito', sans-serif !important;
+}
+.font-newsreader {
+  font-family: 'Newsreader', serif !important;
+}
+.font-google-sans-flex {
+  font-family: 'Google Sans Flex', sans-serif !important;
+}
+.font-oswald {
+  font-family: 'Oswald', sans-serif !important;
+}
+.font-dm-sans {
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+/* ========================================
+   NAV SCROLL STATES
+   ======================================== */
+
+nav {
+  transition:
+    background-color var(--duration-medium) var(--ease-out),
+    box-shadow var(--duration-medium) var(--ease-out),
+    backdrop-filter var(--duration-medium) var(--ease-out);
+}
+
+nav.nav-scrolled {
+  background-color: rgba(242, 252, 227, 0.98);
+  box-shadow: 0 1px 3px rgba(29, 52, 73, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+/* ========================================
+   ENHANCED HERO STATE MANAGEMENT
+   ======================================== */
+
+.hero-badge,
+.hero-headline,
+.hero-subhead,
+.hero-cta,
+.hero-phone-container {
+  will-change: transform, opacity;
+}
+
+/* Gradient text shimmer animation */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.hero-headline .text-transparent {
+  background-size: 200% auto;
+  animation: gradient-shift 6s ease-in-out infinite;
+}
+
+/* ========================================
+   SHIMMER EFFECT FOR BUTTONS
+   ======================================== */
+
+.shimmer-effect {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transform: translateX(-100%);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+button:hover .shimmer-effect {
+  animation: shimmer-sweep 1.2s ease-in-out;
+}
+
+@keyframes shimmer-sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ========================================
+   ENHANCED BUTTON MICRO-INTERACTIONS
+   ======================================== */
+
+button,
+.btn {
+  transition:
+    transform var(--duration-instant) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out);
+}
+
+button:active,
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* Primary button glow on hover */
+button[onclick="openModal()"]:hover {
+  box-shadow:
+    0 10px 40px -10px rgba(59, 171, 159, 0.35),
+    0 0 0 1px rgba(59, 171, 159, 0.15);
+}
+
+/* Arrow icon animation */
+button svg,
+a svg {
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+button:hover svg:last-child,
+a:hover svg:last-child,
+.group:hover svg:last-child {
+  transform: translateX(4px);
+}
+
+/* ========================================
+   ENHANCED FOCUS STATES (A11Y)
+   ======================================== */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #3BAB9F;
+  outline-offset: 2px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.75rem 1.5rem;
+  background: #1D3449;
+  color: white;
+  border-radius: 0.5rem;
+  z-index: 9999;
+  transition: top var(--duration-fast) var(--ease-out);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ========================================
+   ENHANCED CARD INTERACTIONS
+   ======================================== */
+
+.feature-card,
+.glow-card {
+  transition:
+    transform var(--duration-medium) var(--ease-spring),
+    box-shadow var(--duration-medium) var(--ease-out),
+    border-color var(--duration-medium) var(--ease-out);
+}
+
+.feature-card:hover,
+.glow-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 25px 50px -12px rgba(29, 52, 73, 0.15),
+    0 0 0 1px rgba(59, 171, 159, 0.1);
+}
+
+/* Icon container animation */
+.glow-card > div:first-child,
+.feature-card > div:first-child {
+  transition: transform var(--duration-fast) var(--ease-spring);
+}
+
+.glow-card:hover > div:first-child,
+.feature-card:hover > div:first-child {
+  transform: scale(1.1);
+}
+
+/* ========================================
+   COUNTER ANIMATION STYLES
+   ======================================== */
+
+[data-counter] {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ========================================
+   CONNECTING LINE ANIMATION (How It Works)
+   ======================================== */
+
+.connector-line {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.5s var(--ease-out);
+}
+
+.connector-line.animate {
+  clip-path: inset(0 0 0 0);
+}
+
+/* ========================================
+   ENHANCED MODAL TRANSITIONS
+   ======================================== */
+
+#signup-modal .modal-backdrop {
+  backdrop-filter: blur(0px);
+  transition:
+    opacity var(--duration-medium) var(--ease-out),
+    backdrop-filter var(--duration-medium) var(--ease-out);
+}
+
+#signup-modal.active .modal-backdrop {
+  backdrop-filter: blur(8px);
+}
+
+#signup-modal .modal-content {
+  transition:
+    opacity var(--duration-medium) var(--ease-spring),
+    transform var(--duration-medium) var(--ease-spring);
+}
+
+/* ========================================
+   PERFORMANCE OPTIMIZATIONS
+   ======================================== */
+
+.scroll-item,
+.feature-card,
+.glow-card,
+.hero-phone,
+.gradient-orb,
+.gradient-orb-2 {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* Remove will-change after animation */
+.scroll-item.in-view {
+  will-change: auto;
+}
+
+/* Reduce paint areas */
+.glow-card::before {
+  contain: strict;
+}
+
+/* ========================================
+   REDUCED MOTION SUPPORT (A11Y)
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .scroll-item {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .hero-badge,
+  .hero-headline,
+  .hero-subhead,
+  .hero-cta,
+  .hero-phone-container {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .gradient-orb,
+  .gradient-orb-2 {
+    animation: none !important;
+  }
+
+  .feature-card:hover,
+  .glow-card:hover {
+    transform: none;
+  }
+
+  .hero-headline .text-transparent {
+    animation: none;
+  }
+
+  button:hover .shimmer-effect {
+    animation: none;
+  }
+}

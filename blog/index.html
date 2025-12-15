@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Perioskoup AI Dental Companion - Insights for Modern Dentistry</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Expert insights on AI dental companion technology, patient compliance, and dental practice management. Learn how to transform your practice with AI.">
+    <meta name="keywords" content="dental AI blog, AI dental companion, patient compliance dentistry, dental practice management, dental technology trends">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://perioskoup.com/blog/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://perioskoup.com/blog/">
+    <meta property="og:title" content="Blog | Perioskoup AI Dental Companion">
+    <meta property="og:description" content="Expert insights on AI dental companion technology and dental practice management.">
+    <meta property="og:image" content="https://perioskoup.com/og-blog.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Perioskoup Blog",
+        "description": "Expert insights on AI dental companion technology, patient compliance, and dental practice management",
+        "url": "https://perioskoup.com/blog/",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Perioskoup",
+            "url": "https://perioskoup.com"
+        }
+    }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Icons -->
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nebula: '#1D3449',
+                        mint: '#3BAB9F',
+                        aqua: '#4ECDC4',
+                        pale: '#7ED3CC',
+                        rice: '#F2FCE3',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .blog-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(29, 52, 73, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-rice text-nebula selection:bg-mint selection:text-white">
+
+    <!-- Header -->
+    <nav class="py-4 border-b border-nebula/10">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="/" class="flex items-center gap-3 group">
+                <img src="/logo.png" alt="Perioskoup Logo" class="h-10 w-auto">
+                <span class="font-semibold text-lg text-nebula group-hover:text-mint transition-colors">Perioskoup</span>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="/#how-it-works" class="text-sm font-medium text-nebula/70 hover:text-nebula transition-colors">How It Works</a>
+                <a href="/#faq" class="text-sm font-medium text-nebula/70 hover:text-nebula transition-colors">FAQ</a>
+                <a href="/blog/" class="text-sm font-medium text-nebula hover:text-mint transition-colors">Blog</a>
+                <a href="/calculator.html" class="text-sm font-medium text-nebula/70 hover:text-nebula transition-colors">ROI Calculator</a>
+            </div>
+
+            <!-- CTA Button -->
+            <a href="/" class="group relative flex items-center gap-2 px-5 py-2.5 rounded-lg bg-nebula text-white font-medium text-sm overflow-hidden hover:shadow-lg hover:shadow-nebula/20 transition-all">
+                <span class="relative z-10">Get Early Access</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 relative z-10 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-20 relative overflow-hidden">
+        <!-- Background gradient -->
+        <div class="absolute inset-0 bg-gradient-to-b from-mint/10 to-transparent pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-6 relative">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-mint/10 border border-mint/20 text-mint text-sm font-medium mb-6">
+                    <span class="iconify" data-icon="solar:notebook-bold"></span>
+                    Perioskoup Blog
+                </span>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                    Insights for <span class="text-mint">Modern Dentistry</span>
+                </h1>
+                <p class="text-xl text-nebula/70">
+                    Expert guides on AI dental companion technology, patient compliance strategies, and practice optimization.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="pb-16">
+        <div class="max-w-6xl mx-auto px-6">
+            <a href="/blog/best-ai-dental-companion-2025.html" class="block group">
+                <article class="relative bg-white border border-nebula/10 rounded-2xl overflow-hidden blog-card shadow-sm">
+                    <div class="absolute top-4 left-4 z-10">
+                        <span class="px-3 py-1 rounded-full bg-mint text-white text-xs font-bold uppercase tracking-wider">Featured</span>
+                    </div>
+                    <div class="grid lg:grid-cols-2 gap-8 p-8 lg:p-12">
+                        <div class="flex flex-col justify-center">
+                            <div class="flex items-center gap-4 text-sm text-nebula/50 mb-4">
+                                <span>December 2025</span>
+                                <span>•</span>
+                                <span>12 min read</span>
+                            </div>
+                            <h2 class="text-2xl md:text-3xl font-bold mb-4 group-hover:text-mint transition-colors">
+                                Best AI Dental Companion Apps in 2025: Complete Comparison Guide
+                            </h2>
+                            <p class="text-nebula/60 mb-6 line-clamp-3">
+                                Discover the top AI dental companion solutions transforming dental practices. We compare features, pricing, and real-world results to help you choose the best option for your practice.
+                            </p>
+                            <div class="flex items-center gap-2 text-mint font-medium">
+                                Read Article
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="relative aspect-video lg:aspect-auto rounded-xl overflow-hidden bg-gradient-to-br from-mint/20 to-aqua/10 flex items-center justify-center">
+                            <span class="iconify text-mint/40 text-[120px]" data-icon="solar:cpu-bolt-bold-duotone"></span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+        </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="pb-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-2xl font-bold mb-8">Latest Articles</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Post 2 -->
+                <a href="/blog/patient-compliance-dental-apps.html" class="block group">
+                    <article class="bg-white border border-nebula/10 rounded-xl overflow-hidden blog-card h-full shadow-sm">
+                        <div class="aspect-video bg-gradient-to-br from-aqua/20 to-mint/10 flex items-center justify-center">
+                            <span class="iconify text-aqua/50 text-[80px]" data-icon="solar:chart-2-bold-duotone"></span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="px-2 py-0.5 rounded bg-aqua/10 text-aqua text-xs font-medium">Patient Engagement</span>
+                                <span class="text-nebula/40 text-sm">8 min read</span>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3 group-hover:text-mint transition-colors">
+                                How Patient Compliance Apps Transform Dental Practice Results
+                            </h3>
+                            <p class="text-nebula/60 text-sm line-clamp-2">
+                                Learn why 40% of dental patients don't follow through on treatment plans and how compliance technology changes outcomes.
+                            </p>
+                        </div>
+                    </article>
+                </a>
+
+                <!-- Post 3 -->
+                <a href="/blog/dental-practice-ai-assistant-guide.html" class="block group">
+                    <article class="bg-white border border-nebula/10 rounded-xl overflow-hidden blog-card h-full shadow-sm">
+                        <div class="aspect-video bg-gradient-to-br from-pale/30 to-mint/10 flex items-center justify-center">
+                            <span class="iconify text-nebula/30 text-[80px]" data-icon="solar:robot-bold-duotone"></span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="px-2 py-0.5 rounded bg-nebula/10 text-nebula text-xs font-medium">Practice Management</span>
+                                <span class="text-nebula/40 text-sm">10 min read</span>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3 group-hover:text-mint transition-colors">
+                                Dental Practice AI Assistants: The Ultimate Guide for 2025
+                            </h3>
+                            <p class="text-nebula/60 text-sm line-clamp-2">
+                                Everything you need to know about implementing AI assistants in your dental practice, from time savings to patient outcomes.
+                            </p>
+                        </div>
+                    </article>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="py-20 bg-nebula text-white">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <span class="iconify text-mint text-4xl mb-4" data-icon="solar:letter-bold-duotone"></span>
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">Stay Updated</h2>
+            <p class="text-white/70 mb-8">Get the latest insights on AI dental companion technology and practice management delivered to your inbox.</p>
+            <a href="/" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-mint to-aqua text-nebula font-bold rounded-lg hover:shadow-lg hover:shadow-mint/25 transition-all">
+                Join Early Access
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-nebula/10 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2 text-nebula/40 text-sm">
+                    <span>© 2025 Perioskoup</span>
+                    <span class="hidden md:inline">•</span>
+                    <span class="hidden md:inline">AI Dental Companion for Modern Dentistry</span>
+                </div>
+
+                <div class="flex gap-8 text-sm text-nebula/60 font-medium">
+                    <a href="/privacy" class="hover:text-mint transition-colors">Privacy Policy</a>
+                    <a href="/terms" class="hover:text-mint transition-colors">Terms</a>
+                    <a href="/#faq" class="hover:text-mint transition-colors">FAQ</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
