@@ -137,6 +137,12 @@ function initSectionReveals() {
       const target = info?.target || section;
       if (!target || !target.classList) return;
 
+      // GUARD: Skip if already animated (prevents re-animation on scroll back)
+      if (target.classList.contains('in-view')) return;
+
+      // Disable CSS transition to prevent conflict with JS animation
+      target.style.transition = 'none';
+
       // Get delay from class
       const delayClass = [...target.classList].find(c => c.startsWith('delay-'));
       const delay = delayClass ? parseInt(delayClass.replace('delay-', '')) / 1000 : 0;
@@ -155,6 +161,10 @@ function initSectionReveals() {
         }
       ).finished.then(() => {
         if (target.classList) {
+          // Commit final styles explicitly to prevent flash
+          target.style.opacity = '1';
+          target.style.transform = 'translateY(0) scale(1)';
+          target.style.filter = 'blur(0)';
           target.classList.add('in-view');
         }
       });
