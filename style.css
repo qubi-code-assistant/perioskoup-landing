@@ -150,6 +150,30 @@ body {
 
 /* Cards are hidden on mobile via HTML class */
 
+/* ===== CONNECTED TEXT PULSE ===== */
+/* Isolated animation for hero headline word only */
+.hero-connected-word {
+  display: inline-block;
+  animation: heroConnectedPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes heroConnectedPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.02);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-connected-word {
+    animation: none;
+  }
+}
+
 /* Scroll Animation States */
 .scroll-item {
   opacity: 0;
