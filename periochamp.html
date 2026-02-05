@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PerioChamp - Perioskoup VSL</title>
+
+    <meta name="description" content="Learn how Perioskoup keeps perio patients on track and saves you 10-15 minutes per recall.">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="PerioChamp - How Perioskoup Keeps Perio Patients On Track">
+    <meta property="og:description" content="A 10-minute walkthrough showing how Perioskoup saves you 10-15 minutes per recall.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nebula: '#1D3449',
+                        mint: '#3BAB9F',
+                        aqua: '#4ECDC4',
+                        pale: '#7ED3CC',
+                        rice: '#F2FCE3',
+                    },
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-rice text-nebula">
+
+    <main class="max-w-4xl mx-auto px-4 md:px-6 py-10 md:py-14">
+
+        <!-- ═══════════════════════════════════════════════════════════
+             ABOVE THE FOLD: Headline + Video + CTA
+        ════════════════════════════════════════════════════════════ -->
+
+        <!-- Headline: Result + Who it's for -->
+        <header class="text-center mb-8">
+            <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-nebula leading-tight mb-3">
+                Cut 10–15 Minutes Per Perio Recall.<br class="hidden sm:block">
+                <span class="text-nebula/70">Without Losing Patient Compliance.</span>
+            </h1>
+            <!-- Subhead: How / Authority -->
+            <p class="text-base md:text-lg text-nebula/50">
+                Watch Dr. Anca Laura Constantin show you how in 10 minutes.
+            </p>
+        </header>
+
+        <!-- Video -->
+        <section class="mb-6">
+            <div
+                data-testid="vsl-video"
+                class="aspect-video bg-nebula rounded-lg flex items-center justify-center shadow-lg cursor-pointer group"
+                id="video-container"
+            >
+                <button
+                    type="button"
+                    id="video-play-btn"
+                    data-analytics="video-play-click"
+                    class="text-center focus:outline-none"
+                >
+                    <div class="w-16 h-16 md:w-20 md:h-20 mx-auto rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 group-hover:scale-105 transition-all">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </section>
+
+        <!-- Primary CTA -->
+        <section class="mb-8">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-3">
+                <a
+                    href="#ios"
+                    data-testid="download-ios-top"
+                    data-analytics="cta-ios"
+                    class="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-mint to-aqua text-nebula font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all active:scale-[0.98]"
+                >
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                    Download on iOS
+                </a>
+                <a
+                    href="#android"
+                    data-testid="download-android-top"
+                    data-analytics="cta-android"
+                    class="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-mint to-aqua text-nebula font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all active:scale-[0.98]"
+                >
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.523 2.293a.5.5 0 0 0-.67.223L15.5 5.5 14.15 3.5a.5.5 0 0 0-.85.53L14.8 6.2A8.5 8.5 0 0 0 3.5 13.5v.5A8.5 8.5 0 0 0 12 22.5a8.5 8.5 0 0 0 8.5-8.5v-.5a8.5 8.5 0 0 0-2.8-6.3l1.5-2.17a.5.5 0 0 0-.177-.737zM12 20.5a6.5 6.5 0 0 1-6.5-6.5v-.5a6.5 6.5 0 0 1 13 0v.5a6.5 6.5 0 0 1-6.5 6.5z"/>
+                        <circle cx="8.5" cy="11" r="1"/>
+                        <circle cx="15.5" cy="11" r="1"/>
+                    </svg>
+                    Get it on Android
+                </a>
+            </div>
+            <p class="text-center text-sm text-nebula/40">
+                Free 3-month pilot for perio clinics
+            </p>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             SUPPORT BLOCK: What you'll see + Micro-trust
+        ════════════════════════════════════════════════════════════ -->
+
+        <section class="mb-10 bg-white/60 rounded-lg p-5 md:p-6 border border-nebula/10">
+            <p class="text-sm font-semibold text-nebula/60 uppercase tracking-wide mb-3">What you'll see in the video</p>
+            <ul class="space-y-2 text-nebula/70 text-sm md:text-base">
+                <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-mint flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>How patients stay on track between visits (without extra staff time)</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-mint flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>The recall workflow that saves 10–15 min per patient</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-mint flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>Why relapses drop when patients use the app</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-mint flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>Real clinic data from the first 6 months</span>
+                </li>
+            </ul>
+            <!-- Micro-trust -->
+            <p class="mt-4 pt-4 border-t border-nebula/10 text-xs text-nebula/40">
+                EFP Digital Innovation Award, 3rd Prize · Built by periodontists
+            </p>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             FAQ: Handle objections
+        ════════════════════════════════════════════════════════════ -->
+
+        <section class="space-y-2">
+            <details class="group border border-nebula/10 rounded-lg bg-white/60 overflow-hidden">
+                <summary class="px-5 py-3 cursor-pointer text-sm font-medium text-nebula hover:bg-mint/5 transition-colors flex items-center justify-between">
+                    <span>Will my patients actually use an app?</span>
+                    <svg class="w-5 h-5 text-nebula/40 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-5 pb-4 text-sm text-nebula/60">
+                    In our pilot clinics, 70%+ of patients over 50 used the app regularly. The interface is designed for all ages — large text, simple actions, gentle reminders.
+                </div>
+            </details>
+
+            <details class="group border border-nebula/10 rounded-lg bg-white/60 overflow-hidden">
+                <summary class="px-5 py-3 cursor-pointer text-sm font-medium text-nebula hover:bg-mint/5 transition-colors flex items-center justify-between">
+                    <span>Is my patient data secure?</span>
+                    <svg class="w-5 h-5 text-nebula/40 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-5 pb-4 text-sm text-nebula/60">
+                    GDPR compliant. Data encrypted at rest and in transit. Hosted on EU servers. No patient data is sold or shared. You can delete any patient's data instantly.
+                </div>
+            </details>
+
+            <details class="group border border-nebula/10 rounded-lg bg-white/60 overflow-hidden">
+                <summary class="px-5 py-3 cursor-pointer text-sm font-medium text-nebula hover:bg-mint/5 transition-colors flex items-center justify-between">
+                    <span>What does "free pilot" mean?</span>
+                    <svg class="w-5 h-5 text-nebula/40 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-5 pb-4 text-sm text-nebula/60">
+                    Full access for 3 months, no credit card, no commitment. We're building this with periodontists and want real feedback. Cancel anytime with one click.
+                </div>
+            </details>
+
+            <details class="group border border-nebula/10 rounded-lg bg-white/60 overflow-hidden">
+                <summary class="px-5 py-3 cursor-pointer text-sm font-medium text-nebula hover:bg-mint/5 transition-colors flex items-center justify-between">
+                    <span>How long does setup take?</span>
+                    <svg class="w-5 h-5 text-nebula/40 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-5 pb-4 text-sm text-nebula/60">
+                    Under 5 minutes. Download, create your clinic profile, invite your first patient. No integrations required — works alongside any practice management system.
+                </div>
+            </details>
+
+            <!-- Q&A Input -->
+            <details class="group border border-nebula/10 rounded-lg bg-white/60 overflow-hidden">
+                <summary class="px-5 py-3 cursor-pointer text-sm font-medium text-nebula hover:bg-mint/5 transition-colors flex items-center justify-between">
+                    <span>Have another question?</span>
+                    <svg class="w-5 h-5 text-nebula/40 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-5 pb-4">
+                    <form id="qa-form" class="flex gap-2">
+                        <input
+                            type="text"
+                            id="qa-input"
+                            data-testid="qa-input"
+                            placeholder="Ask about Perioskoup..."
+                            class="flex-1 px-3 py-2 rounded-lg border border-nebula/20 bg-white focus:border-mint focus:ring-1 focus:ring-mint/30 outline-none text-sm"
+                        >
+                        <button type="submit" data-analytics="qa-submit" class="px-4 py-2 rounded-lg bg-nebula text-white text-sm font-medium hover:bg-nebula/90 transition-colors">
+                            Send
+                        </button>
+                    </form>
+                    <p id="qa-confirmation" class="mt-2 text-mint text-sm hidden">Thanks! We'll reply within 24 hours.</p>
+                </div>
+            </details>
+        </section>
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        function trackEvent(name, props = {}) {
+            console.log('[Analytics]', name, props);
+        }
+
+        document.querySelectorAll('[data-analytics]').forEach(el => {
+            el.addEventListener('click', () => trackEvent(el.dataset.analytics));
+        });
+
+        // Q&A
+        document.getElementById('qa-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const input = document.getElementById('qa-input');
+            if (input.value.trim()) {
+                trackEvent('qa-submit', { q: input.value.trim() });
+                input.value = '';
+                document.getElementById('qa-confirmation').classList.remove('hidden');
+                setTimeout(() => document.getElementById('qa-confirmation').classList.add('hidden'), 4000);
+            }
+        });
+    </script>
+
+</body>
+</html>

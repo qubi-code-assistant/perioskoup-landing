@@ -4,6 +4,8 @@ const BASE_URL = 'http://localhost:5173';
 
 const PAGES = [
   { path: '/', name: 'Homepage' },
+  { path: '/periochamp.html', name: 'PerioChamp VSL' },
+  { path: '/signup.html', name: 'Signup' },
   { path: '/privacy.html', name: 'Privacy' },
   { path: '/terms.html', name: 'Terms' },
   { path: '/calculator.html', name: 'Calculator' },
@@ -208,6 +210,109 @@ test.describe('Site Validation', () => {
     }
 
     expect(errors).toHaveLength(0);
+  });
+
+});
+
+test.describe('PerioChamp VSL Page', () => {
+
+  test('All required elements are present', async ({ page }) => {
+    await page.goto(`${BASE_URL}/periochamp.html`);
+
+    // Video placeholder
+    await expect(page.getByTestId('vsl-video')).toBeVisible();
+
+    // CTA buttons
+    await expect(page.getByTestId('download-ios-top')).toBeVisible();
+    await expect(page.getByTestId('download-android-top')).toBeVisible();
+
+    // Q&A input (expand the Q&A section specifically)
+    await page.locator('summary').filter({ hasText: 'Have another question?' }).click();
+    await expect(page.getByTestId('qa-input')).toBeVisible();
+  });
+
+  test('Q&A section expands and shows input', async ({ page }) => {
+    await page.goto(`${BASE_URL}/periochamp.html`);
+
+    // Click to expand the Q&A section specifically
+    await page.locator('summary').filter({ hasText: 'Have another question?' }).click();
+
+    // Check input is visible
+    await expect(page.getByTestId('qa-input')).toBeVisible();
+  });
+
+  test('CTA buttons are always enabled', async ({ page }) => {
+    await page.goto(`${BASE_URL}/periochamp.html`);
+
+    const iosBtn = page.getByTestId('download-ios-top');
+    const androidBtn = page.getByTestId('download-android-top');
+
+    // Check enabled state (has gradient classes)
+    await expect(iosBtn).toHaveClass(/from-mint/);
+    await expect(androidBtn).toHaveClass(/from-mint/);
+  });
+
+  test('Page is mobile responsive', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.goto(`${BASE_URL}/periochamp.html`);
+
+    // Check all elements are visible on mobile
+    await expect(page.getByTestId('vsl-video')).toBeVisible();
+    await expect(page.getByTestId('download-ios-top')).toBeVisible();
+
+    // Check no horizontal overflow
+    const bodyWidth = await page.evaluate(() => document.body.scrollWidth);
+    expect(bodyWidth).toBeLessThanOrEqual(375);
+  });
+
+});
+
+test.describe('Signup Page', () => {
+
+  test('All required form elements are present', async ({ page }) => {
+    await page.goto(`${BASE_URL}/signup.html`);
+
+    // Form
+    await expect(page.getByTestId('signup-form')).toBeVisible();
+
+    // Key inputs
+    await expect(page.getByTestId('input-name')).toBeVisible();
+    await expect(page.getByTestId('input-email')).toBeVisible();
+    await expect(page.getByTestId('select-role')).toBeVisible();
+    await expect(page.getByTestId('input-practice')).toBeVisible();
+    await expect(page.getByTestId('select-country')).toBeVisible();
+    await expect(page.getByTestId('select-operatories')).toBeVisible();
+    await expect(page.getByTestId('select-perio-patients')).toBeVisible();
+
+    // Consent checkboxes
+    await expect(page.getByTestId('consent-trial')).toBeVisible();
+    await expect(page.getByTestId('consent-data')).toBeVisible();
+
+    // Submit button
+    await expect(page.getByTestId('submit-button')).toBeVisible();
+  });
+
+  test('Form validation works', async ({ page }) => {
+    await page.goto(`${BASE_URL}/signup.html`);
+
+    // Try to submit empty form
+    await page.getByTestId('submit-button').click();
+
+    // Form should still be visible (not submitted)
+    await expect(page.getByTestId('signup-form')).toBeVisible();
+  });
+
+  test('Page is mobile responsive', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.goto(`${BASE_URL}/signup.html`);
+
+    // Check form is visible on mobile
+    await expect(page.getByTestId('signup-form')).toBeVisible();
+    await expect(page.getByTestId('submit-button')).toBeVisible();
+
+    // Check no horizontal overflow
+    const bodyWidth = await page.evaluate(() => document.body.scrollWidth);
+    expect(bodyWidth).toBeLessThanOrEqual(375);
   });
 
 });
