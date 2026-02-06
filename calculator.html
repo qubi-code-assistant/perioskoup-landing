@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Practice ROI Calculator | How Much Are Patient Relapses Costing You? | Perioskoup</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Calculate how much patient no-shows and relapses cost your dental practice. See potential savings with an AI dental companion like Perioskoup.">
+    <meta name="keywords" content="dental ROI calculator, dental practice cost calculator, patient no-show cost, periodontal relapse cost, dental AI savings">
+    <meta name="author" content="Perioskoup">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://perioskoup.com/calculator.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://perioskoup.com/calculator.html">
+    <meta property="og:title" content="Dental Practice ROI Calculator | Perioskoup">
+    <meta property="og:description" content="Calculate how much patient no-shows and relapses cost your practice.">
+    <meta property="og:image" content="https://perioskoup.com/og-calculator.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Dental Practice ROI Calculator",
+        "description": "Calculate how much patient no-shows and relapses cost your dental practice and see potential savings with AI",
+        "url": "https://perioskoup.com/calculator.html",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "Perioskoup"
+        }
+    }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Icons -->
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nebula: '#1D3449',
+                        mint: '#3BAB9F',
+                        aqua: '#4ECDC4',
+                        pale: '#7ED3CC',
+                        rice: '#F2FCE3',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 8px;
+            background: rgba(29,52,73,0.1);
+            border-radius: 4px;
+            outline: none;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #3BAB9F, #4ECDC4);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(59, 171, 159, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(59, 171, 159, 0.5);
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #3BAB9F, #4ECDC4);
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+        .result-card {
+            animation: fadeIn 0.3s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .pulse-highlight {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(59, 171, 159, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(59, 171, 159, 0); }
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen" style="background: linear-gradient(180deg, #234966 0%, #12222d 50%, #0a171e 100%);">
+
+        <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <a href="/" class="flex items-center gap-2 md:gap-3">
+                    <img src="/logo-brand.svg" alt="Perioskoup Logo" class="h-8 md:h-10 w-auto">
+                </a>
+                <div class="hidden md:flex items-center gap-1">
+                    <a href="/#how-it-works" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">How It Works</a>
+                    <a href="/#award" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Award</a>
+                    <a href="/#faq" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">FAQ</a>
+                    <a href="/blog/" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Blog</a>
+                    <a href="/calculator.html" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">ROI Calculator</a>
+                    <a href="/contact.html" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Contact</a>
+                </div>
+                <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden p-2 text-white/80 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-white/10" style="background: rgba(35, 73, 102, 0.98);">
+            <div class="px-4 py-4 space-y-1">
+                <a href="/#how-it-works" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">How It Works</a>
+                <a href="/#award" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">Award</a>
+                <a href="/#faq" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">FAQ</a>
+                <a href="/blog/" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">Blog</a>
+                <a href="/calculator.html" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">ROI Calculator</a>
+                <a href="/contact.html" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-mint/5 to-transparent pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-6 text-center relative">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-mint/10 border border-mint/20 text-mint text-sm font-medium mb-6">
+                <span class="iconify" data-icon="solar:calculator-bold"></span>
+                Free ROI Calculator
+            </span>
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                How Much Are Patient Relapses <span class="text-mint">Costing You?</span>
+            </h1>
+            <p class="text-xl text-white/70 max-w-2xl mx-auto">
+                Calculate the hidden costs of no-shows and poor patient compliance, then see how an AI dental companion can transform your results.
+            </p>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="pb-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Input Section -->
+                <div class="space-y-8">
+                    <div class="bg-nebula/5 border border-white/10 rounded-2xl p-8">
+                        <h2 class="text-xl font-semibold mb-6 flex items-center gap-2">
+                            <span class="iconify text-mint" data-icon="solar:settings-bold"></span>
+                            Your Practice Details
+                        </h2>
+
+                        <!-- Number of Chairs -->
+                        <div class="mb-8">
+                            <div class="flex justify-between items-center mb-3">
+                                <label class="font-medium">Number of Chairs</label>
+                                <span id="chairs-value" class="text-mint font-bold text-lg">3</span>
+                            </div>
+                            <input type="range" id="chairs" min="1" max="10" value="3" class="w-full">
+                            <div class="flex justify-between text-xs text-white/40 mt-1">
+                                <span>1</span>
+                                <span>10</span>
+                            </div>
+                        </div>
+
+                        <!-- Patients per Day -->
+                        <div class="mb-8">
+                            <div class="flex justify-between items-center mb-3">
+                                <label class="font-medium">Patients per Day</label>
+                                <span id="patients-value" class="text-mint font-bold text-lg">20</span>
+                            </div>
+                            <input type="range" id="patients" min="5" max="50" value="20" class="w-full">
+                            <div class="flex justify-between text-xs text-white/40 mt-1">
+                                <span>5</span>
+                                <span>50</span>
+                            </div>
+                        </div>
+
+                        <!-- Periodontal Percentage -->
+                        <div class="mb-8">
+                            <div class="flex justify-between items-center mb-3">
+                                <label class="font-medium">Periodontal Patients (%)</label>
+                                <span id="perio-value" class="text-mint font-bold text-lg">25%</span>
+                            </div>
+                            <input type="range" id="perio" min="10" max="60" value="25" class="w-full">
+                            <div class="flex justify-between text-xs text-white/40 mt-1">
+                                <span>10%</span>
+                                <span>60%</span>
+                            </div>
+                        </div>
+
+                        <!-- No-Show Rate -->
+                        <div class="mb-8">
+                            <div class="flex justify-between items-center mb-3">
+                                <label class="font-medium">Current No-Show Rate (%)</label>
+                                <span id="noshow-value" class="text-mint font-bold text-lg">15%</span>
+                            </div>
+                            <input type="range" id="noshow" min="5" max="30" value="15" class="w-full">
+                            <div class="flex justify-between text-xs text-white/40 mt-1">
+                                <span>5%</span>
+                                <span>30%</span>
+                            </div>
+                        </div>
+
+                        <!-- Average Revenue per Patient -->
+                        <div class="mb-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <label class="font-medium">Avg Revenue per Patient (€)</label>
+                                <span id="revenue-value" class="text-mint font-bold text-lg">€150</span>
+                            </div>
+                            <input type="range" id="revenue" min="50" max="500" step="10" value="150" class="w-full">
+                            <div class="flex justify-between text-xs text-white/40 mt-1">
+                                <span>€50</span>
+                                <span>€500</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Assumptions -->
+                    <div class="p-4 bg-nebula/5 border border-white/10 rounded-xl text-sm text-white/60">
+                        <div class="flex items-start gap-2">
+                            <span class="iconify text-white/40 mt-0.5" data-icon="solar:info-circle-linear"></span>
+                            <div>
+                                <strong class="text-white/80">Calculation assumptions:</strong>
+                                <ul class="mt-1 space-y-1">
+                                    <li>• 250 working days per year</li>
+                                    <li>• 60% periodontal relapse rate without intervention</li>
+                                    <li>• Average relapse cost = 3x initial treatment</li>
+                                    <li>• Perioskoup reduces no-shows by 30% and relapses by 40%</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div class="space-y-6">
+                    <!-- Current Costs -->
+                    <div class="bg-gradient-to-br from-red-500/10 to-red-500/5 border border-red-500/20 rounded-2xl p-8 result-card">
+                        <h3 class="text-lg font-semibold mb-4 flex items-center gap-2 text-red-400">
+                            <span class="iconify" data-icon="solar:danger-triangle-bold"></span>
+                            Your Annual Hidden Costs
+                        </h3>
+
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center py-3 border-b border-white/10">
+                                <span class="text-white/70">No-Show Revenue Loss</span>
+                                <span id="noshow-cost" class="text-xl font-bold text-red-400">€0</span>
+                            </div>
+                            <div class="flex justify-between items-center py-3 border-b border-white/10">
+                                <span class="text-white/70">Periodontal Relapse Cost</span>
+                                <span id="relapse-cost" class="text-xl font-bold text-red-400">€0</span>
+                            </div>
+                            <div class="flex justify-between items-center py-3 border-b border-white/10">
+                                <span class="text-white/70">Time Lost on Hygiene Coaching</span>
+                                <span id="time-cost" class="text-xl font-bold text-red-400">€0</span>
+                            </div>
+                            <div class="flex justify-between items-center pt-4">
+                                <span class="text-white font-semibold text-lg">Total Annual Cost</span>
+                                <span id="total-cost" class="text-3xl font-bold text-red-400">€0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Potential Savings -->
+                    <div class="bg-gradient-to-br from-mint/10 to-aqua/5 border border-mint/20 rounded-2xl p-8 result-card pulse-highlight">
+                        <h3 class="text-lg font-semibold mb-4 flex items-center gap-2 text-mint">
+                            <span class="iconify" data-icon="solar:chart-2-bold"></span>
+                            Potential Savings with Perioskoup
+                        </h3>
+
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center py-3 border-b border-white/10">
+                                <span class="text-white/70">Recovered No-Show Revenue</span>
+                                <span id="noshow-savings" class="text-xl font-bold text-mint">€0</span>
+                            </div>
+                            <div class="flex justify-between items-center py-3 border-b border-white/10">
+                                <span class="text-white/70">Reduced Relapse Costs</span>
+                                <span id="relapse-savings" class="text-xl font-bold text-mint">€0</span>
+                            </div>
+                            <div class="flex justify-between items-center py-3 border-b border-white/10">
+                                <span class="text-white/70">Time Saved (valued at €50/hr)</span>
+                                <span id="time-savings" class="text-xl font-bold text-mint">€0</span>
+                            </div>
+                            <div class="flex justify-between items-center pt-4">
+                                <span class="text-white font-semibold text-lg">Annual Savings Potential</span>
+                                <span id="total-savings" class="text-3xl font-bold text-mint">€0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ROI Summary -->
+                    <div class="bg-nebula/5 border border-white/10 rounded-2xl p-8 result-card">
+                        <div class="text-center">
+                            <div class="text-white/60 mb-2">Estimated ROI</div>
+                            <div id="roi-value" class="text-5xl font-bold text-mint mb-4">0x</div>
+                            <p class="text-white/60 text-sm mb-6">Return on your Perioskoup investment</p>
+
+                            <a href="/" class="inline-flex items-center justify-center gap-2 w-full px-8 py-4 bg-gradient-to-r from-mint to-aqua text-white font-bold rounded-lg hover:shadow-lg hover:shadow-mint/25 transition-all">
+                                Start Saving Today — Free Early Access
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </a>
+                            <p class="text-white/40 text-xs mt-3">No credit card required. GDPR compliant.</p>
+                        </div>
+                    </div>
+
+                    <!-- Share Results -->
+                    <div class="flex gap-4">
+                        <button onclick="copyResults()" class="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-nebula/5 border border-white/10 rounded-lg text-white/70 hover:bg-nebula/10 hover:text-white transition-all">
+                            <span class="iconify" data-icon="solar:copy-linear"></span>
+                            Copy Results
+                        </button>
+                        <button onclick="shareResults()" class="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-nebula/5 border border-white/10 rounded-lg text-white/70 hover:bg-nebula/10 hover:text-white transition-all">
+                            <span class="iconify" data-icon="solar:share-linear"></span>
+                            Share
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Context Section -->
+    <section class="py-16 bg-nebula/5 border-t border-white/10">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-2xl font-bold mb-8 text-center">Understanding the Hidden Costs</h2>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="p-6 bg-nebula/5 border border-white/10 rounded-xl">
+                    <div class="w-12 h-12 rounded-lg bg-red-500/10 flex items-center justify-center mb-4">
+                        <span class="iconify text-red-400 text-2xl" data-icon="solar:calendar-remove-bold"></span>
+                    </div>
+                    <h3 class="font-semibold mb-2">No-Shows</h3>
+                    <p class="text-white/60 text-sm">The average dental practice has a 15-20% no-show rate. Each empty chair costs you revenue and disrupts scheduling.</p>
+                </div>
+
+                <div class="p-6 bg-nebula/5 border border-white/10 rounded-xl">
+                    <div class="w-12 h-12 rounded-lg bg-orange-500/10 flex items-center justify-center mb-4">
+                        <span class="iconify text-orange-400 text-2xl" data-icon="solar:refresh-circle-bold"></span>
+                    </div>
+                    <h3 class="font-semibold mb-2">Relapses</h3>
+                    <p class="text-white/60 text-sm">60% of periodontal patients relapse within 2 years. Re-treatment costs 3x the original—often borne by patients who then leave.</p>
+                </div>
+
+                <div class="p-6 bg-nebula/5 border border-white/10 rounded-xl">
+                    <div class="w-12 h-12 rounded-lg bg-yellow-500/10 flex items-center justify-center mb-4">
+                        <span class="iconify text-yellow-400 text-2xl" data-icon="solar:clock-circle-bold"></span>
+                    </div>
+                    <h3 class="font-semibold mb-2">Time Lost</h3>
+                    <p class="text-white/60 text-sm">Dentists spend 10-15 minutes per high-risk patient on repetitive hygiene coaching that could be automated.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+        <!-- Footer -->
+    <footer class="py-12 border-t border-white/10" style="background: #0a171e;">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <a href="/" class="flex items-center gap-3 mb-4">
+                        <img src="/logo-brand.svg" alt="Perioskoup" class="h-8 w-auto">
+                    </a>
+                    <p class="text-white/50 text-sm">Award-winning AI dental companion.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Product</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/#how-it-works" class="text-white/60 hover:text-lime-400">How It Works</a></li>
+                        <li><a href="/#faq" class="text-white/60 hover:text-lime-400">FAQ</a></li>
+                        <li><a href="/calculator.html" class="text-white/60 hover:text-lime-400">ROI Calculator</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/#award" class="text-white/60 hover:text-lime-400">About</a></li>
+                        <li><a href="/blog/" class="text-white/60 hover:text-lime-400">Blog</a></li>
+                        <li><a href="/contact.html" class="text-white/60 hover:text-lime-400">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/privacy.html" class="text-white/60 hover:text-lime-400">Privacy</a></li>
+                        <li><a href="/terms.html" class="text-white/60 hover:text-lime-400">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-white/40 text-sm">© 2026 Perioskoup. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="https://linkedin.com/company/perioskoup" class="text-white/40 hover:text-lime-400"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                    <a href="https://instagram.com/perioskoup" class="text-white/40 hover:text-lime-400"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                    <a href="https://x.com/perioskoup" class="text-white/40 hover:text-lime-400"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (nav) nav.classList.toggle('nav-scrolled', window.scrollY > 50);
+        });
+    </script>
+
+    <!-- Calculator Script -->
+    <script>
+        // DOM Elements
+        const chairsInput = document.getElementById('chairs');
+        const patientsInput = document.getElementById('patients');
+        const perioInput = document.getElementById('perio');
+        const noshowInput = document.getElementById('noshow');
+        const revenueInput = document.getElementById('revenue');
+
+        const chairsValue = document.getElementById('chairs-value');
+        const patientsValue = document.getElementById('patients-value');
+        const perioValue = document.getElementById('perio-value');
+        const noshowValue = document.getElementById('noshow-value');
+        const revenueValue = document.getElementById('revenue-value');
+
+        const noshowCost = document.getElementById('noshow-cost');
+        const relapseCost = document.getElementById('relapse-cost');
+        const timeCost = document.getElementById('time-cost');
+        const totalCost = document.getElementById('total-cost');
+
+        const noshowSavings = document.getElementById('noshow-savings');
+        const relapseSavings = document.getElementById('relapse-savings');
+        const timeSavings = document.getElementById('time-savings');
+        const totalSavings = document.getElementById('total-savings');
+        const roiValue = document.getElementById('roi-value');
+
+        // Constants
+        const WORKING_DAYS = 250;
+        const RELAPSE_RATE = 0.60;
+        const RELAPSE_COST_MULTIPLIER = 3;
+        const COACHING_MINUTES = 12;
+        const HOURLY_RATE = 50;
+        const NOSHOW_REDUCTION = 0.30;
+        const RELAPSE_REDUCTION = 0.40;
+        const TIME_REDUCTION = 0.67;
+        const ESTIMATED_MONTHLY_COST = 199; // Estimated Perioskoup cost
+
+        // Format currency
+        function formatCurrency(value) {
+            return '€' + Math.round(value).toLocaleString('de-DE');
+        }
+
+        // Calculate results
+        function calculate() {
+            const chairs = parseInt(chairsInput.value);
+            const patients = parseInt(patientsInput.value);
+            const perio = parseInt(perioInput.value) / 100;
+            const noshow = parseInt(noshowInput.value) / 100;
+            const revenue = parseInt(revenueInput.value);
+
+            // Update displayed values
+            chairsValue.textContent = chairs;
+            patientsValue.textContent = patients;
+            perioValue.textContent = perioInput.value + '%';
+            noshowValue.textContent = noshowInput.value + '%';
+            revenueValue.textContent = formatCurrency(revenue);
+
+            // Calculate annual values
+            const annualPatients = patients * WORKING_DAYS;
+            const annualPerioPatients = annualPatients * perio;
+
+            // Current Costs
+            const annualNoshowCost = annualPatients * noshow * revenue;
+            const annualRelapseCost = annualPerioPatients * RELAPSE_RATE * revenue * RELAPSE_COST_MULTIPLIER;
+            const annualTimeCostValue = annualPerioPatients * (COACHING_MINUTES / 60) * HOURLY_RATE;
+            const totalAnnualCost = annualNoshowCost + annualRelapseCost + annualTimeCostValue;
+
+            // Potential Savings
+            const noshowSavingsValue = annualNoshowCost * NOSHOW_REDUCTION;
+            const relapseSavingsValue = annualRelapseCost * RELAPSE_REDUCTION;
+            const timeSavingsValue = annualTimeCostValue * TIME_REDUCTION;
+            const totalAnnualSavings = noshowSavingsValue + relapseSavingsValue + timeSavingsValue;
+
+            // ROI calculation
+            const annualSoftwareCost = ESTIMATED_MONTHLY_COST * 12;
+            const roi = totalAnnualSavings / annualSoftwareCost;
+
+            // Update display
+            noshowCost.textContent = formatCurrency(annualNoshowCost);
+            relapseCost.textContent = formatCurrency(annualRelapseCost);
+            timeCost.textContent = formatCurrency(annualTimeCostValue);
+            totalCost.textContent = formatCurrency(totalAnnualCost);
+
+            noshowSavings.textContent = formatCurrency(noshowSavingsValue);
+            relapseSavings.textContent = formatCurrency(relapseSavingsValue);
+            timeSavings.textContent = formatCurrency(timeSavingsValue);
+            totalSavings.textContent = formatCurrency(totalAnnualSavings);
+
+            roiValue.textContent = roi.toFixed(1) + 'x';
+        }
+
+        // Event listeners
+        [chairsInput, patientsInput, perioInput, noshowInput, revenueInput].forEach(input => {
+            input.addEventListener('input', calculate);
+        });
+
+        // Copy results to clipboard
+        function copyResults() {
+            const results = `
+Dental Practice ROI Calculator Results
+=====================================
+
+Practice Details:
+• Chairs: ${chairsInput.value}
+• Patients/Day: ${patientsInput.value}
+• Periodontal: ${perioInput.value}%
+• No-Show Rate: ${noshowInput.value}%
+• Avg Revenue: ${revenueValue.textContent}
+
+Annual Hidden Costs:
+• No-Show Loss: ${noshowCost.textContent}
+• Relapse Cost: ${relapseCost.textContent}
+• Time Lost: ${timeCost.textContent}
+• TOTAL: ${totalCost.textContent}
+
+Potential Savings with Perioskoup:
+• No-Show Recovery: ${noshowSavings.textContent}
+• Relapse Reduction: ${relapseSavings.textContent}
+• Time Saved: ${timeSavings.textContent}
+• TOTAL SAVINGS: ${totalSavings.textContent}
+
+Estimated ROI: ${roiValue.textContent}
+
+Try Perioskoup free: https://perioskoup.com
+            `.trim();
+
+            navigator.clipboard.writeText(results).then(() => {
+                alert('Results copied to clipboard!');
+            });
+        }
+
+        // Share results
+        function shareResults() {
+            const shareText = `I just calculated my dental practice could save ${totalSavings.textContent}/year with @Perioskoup. Check your hidden costs: https://perioskoup.com/calculator.html`;
+
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Dental Practice ROI Calculator',
+                    text: shareText,
+                    url: 'https://perioskoup.com/calculator.html'
+                });
+            } else {
+                navigator.clipboard.writeText(shareText).then(() => {
+                    alert('Share text copied to clipboard!');
+                });
+            }
+        }
+
+        // Initial calculation
+        calculate();
+    </script>
+
+</body>
+</html>
