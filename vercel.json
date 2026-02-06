@@ -1,11 +1,6 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "npm cache clean --force && npm install && npm run build",
   "outputDirectory": "dist",
   "cleanUrls": true,
-  "trailingSlash": false,
-  "build": {
-    "env": {
-      "CACHE_BUST": "20260206_2203"
-    }
-  }
+  "trailingSlash": false
 }
