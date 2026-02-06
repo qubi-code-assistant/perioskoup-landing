@@ -309,9 +309,9 @@
     <a href="#main-content" class="skip-link">Skip to content</a>
 
     <!-- @navbar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background: rgba(18, 34, 45, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 md:px-6">
-            <div class="flex items-center justify-between h-16 md:h-18">
+            <div class="flex items-center justify-between h-16 md:h-20">
                 <!-- Logo -->
                 <a href="/" class="flex items-center gap-2 md:gap-3 group">
                     <img src="/logo-brand.svg" alt="Perioskoup Logo" class="h-8 md:h-10 w-auto">
@@ -319,16 +319,16 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden md:flex items-center gap-1">
-                    <a href="#how-it-works" class="px-4 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all">How It Works</a>
-                    <a href="#award" class="px-4 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all">Award</a>
-                    <a href="#faq" class="px-4 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all">FAQ</a>
-                    <a href="/blog/" class="px-4 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all">Blog</a>
-                    <a href="/calculator.html" class="px-4 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all">ROI Calculator</a>
-                    <a href="/contact.html" class="px-4 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all">Contact</a>
+                    <a href="#how-it-works" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">How It Works</a>
+                    <a href="#award" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Award</a>
+                    <a href="#faq" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">FAQ</a>
+                    <a href="/blog/" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Blog</a>
+                    <a href="/calculator.html" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">ROI Calculator</a>
+                    <a href="/contact.html" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Contact</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button onclick="toggleMobileMenu()" class="md:hidden p-2 -mr-2 text-white/70 hover:text-white transition-colors" aria-label="Toggle menu">
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 -mr-2 text-white/80 hover:text-white transition-colors" aria-label="Toggle menu">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
@@ -337,14 +337,14 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-white/10" style="background: rgba(18, 34, 45, 0.95);">
+        <div id="mobile-menu" class="hidden md:hidden border-t border-white/10" style="background: rgba(35, 73, 102, 0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
             <div class="px-4 py-4 space-y-1">
-                <a href="#how-it-works" onclick="closeMobileMenu()" class="block px-4 py-3 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all">How It Works</a>
-                <a href="#award" onclick="closeMobileMenu()" class="block px-4 py-3 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all">Award</a>
-                <a href="#faq" onclick="closeMobileMenu()" class="block px-4 py-3 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all">FAQ</a>
-                <a href="/blog/" class="block px-4 py-3 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all">Blog</a>
-                <a href="/calculator.html" class="block px-4 py-3 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all">ROI Calculator</a>
-                <a href="/contact.html" class="block px-4 py-3 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all">Contact</a>
+                <a href="#how-it-works" onclick="closeMobileMenu()" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all">How It Works</a>
+                <a href="#award" onclick="closeMobileMenu()" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all">Award</a>
+                <a href="#faq" onclick="closeMobileMenu()" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all">FAQ</a>
+                <a href="/blog/" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all">Blog</a>
+                <a href="/calculator.html" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all">ROI Calculator</a>
+                <a href="/contact.html" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all">Contact</a>
             </div>
         </div>
     </nav>
