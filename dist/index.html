@@ -302,6 +302,9 @@
         }
     </script>
 
+    <style>
+        nav.nav-scrolled { background-color: rgba(18, 34, 45, 0.95); backdrop-filter: blur(20px); }
+    </style>
   <script type="module" crossorigin src="/assets/main-NBVSjV1g.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/main-DtUz41Zd.css">
 </head>
@@ -1129,5 +1132,12 @@ and commitment to innovate dental care."
     </footer>
 
     <!-- Scripts -->
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('nav-scrolled', window.scrollY > 50);
+        });
+    </script>
 </body></html>
 <!-- rebuild 1770415201 -->
