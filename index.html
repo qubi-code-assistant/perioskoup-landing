@@ -375,16 +375,16 @@
                             </span>
                         </button>
                     </div>
-                    <div class="flex items-center gap-4 text-sm">
+                    <div class="flex flex-wrap items-center gap-3 sm:gap-4 text-xs sm:text-sm">
                         <span class="flex items-center gap-1.5 text-white/55">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-lime-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-lime-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                             Free for early adopters
                         </span>
-                        <span class="w-1 h-1 rounded-full bg-white/30"></span>
+                        <span class="w-1 h-1 rounded-full bg-white/30 hidden sm:block"></span>
                         <span class="flex items-center gap-1.5 text-white/55">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-lime-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-lime-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                             No credit card
@@ -394,7 +394,7 @@
             </div>
 
             <!-- Right: Phone with Floating Interaction Cards -->
-            <div class="hero-phone-container order-2 flex lg:h-[600px] h-[400px] relative justify-center lg:justify-end lg:pr-0 lg:mr-[-40px]">
+            <div class="hero-phone-container order-2 flex lg:h-[600px] h-[320px] sm:h-[380px] relative justify-center lg:justify-end lg:pr-0 lg:mr-[-40px]">
 
                 <!-- Notification Wave - Two-way communication -->
                 <div class="interaction-cards absolute inset-0 pointer-events-none hidden lg:block">
@@ -1114,7 +1114,7 @@ and commitment to innovate dental care."
                 <p class="text-pale/80 mb-6">Join 30+ clinics on the early access list.</p>
 
                 <form id="waitlist-form" class="space-y-4">
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                         <div class="space-y-1">
                             <label class="text-xs font-medium text-pale uppercase tracking-wide">Name</label>
                             <input type="text" name="name" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-mint focus:ring-1 focus:ring-mint transition-all" placeholder="Dr. John Doe">
@@ -1130,7 +1130,7 @@ and commitment to innovate dental care."
                     </div>
 
                     <!-- Qualifier Fields -->
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                         <div class="space-y-1">
                             <label class="text-xs font-medium text-pale uppercase tracking-wide">Country</label>
                             <select name="country" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-mint focus:ring-1 focus:ring-mint transition-all appearance-none cursor-pointer">

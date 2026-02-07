@@ -1109,3 +1109,205 @@ textarea:focus-visible {
 .compare-bar:hover .compare-bar-right > div::after {
   opacity: 1;
 }
+
+/* ========================================
+   MOBILE OPTIMIZATIONS
+   ======================================== */
+
+/* Better touch targets on mobile */
+@media (max-width: 767px) {
+  /* Minimum touch target size */
+  button, a, summary {
+    min-height: 44px;
+  }
+  
+  /* Hero section mobile tweaks */
+  .hero-headline {
+    font-size: 1.75rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  /* Hero phone - slightly larger on mobile */
+  .hero-phone {
+    transform: rotate(-3deg) perspective(800px) rotateY(-5deg) rotateX(2deg);
+    max-height: 350px;
+  }
+  
+  .hero-phone:hover {
+    transform: rotate(-3deg) perspective(800px) rotateY(-5deg) rotateX(2deg);
+  }
+  
+  /* Section spacing - tighter on mobile */
+  section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  
+  /* Hero needs more top space for navbar */
+  #main-content {
+    padding-top: 5rem !important;
+  }
+  
+  /* Section headings - smaller on mobile */
+  .font-heading {
+    font-size: 2rem !important;
+  }
+  
+  h2.font-heading {
+    font-size: 1.75rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  /* Modal form - single column on mobile */
+  #signup-modal .grid-cols-2,
+  #recommend-modal .grid-cols-2 {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+  
+  /* Modal padding - less on mobile */
+  .modal-content > div {
+    padding: 1.5rem !important;
+  }
+  
+  /* FAQ summary - prevent text overflow */
+  details summary h3 {
+    font-size: 1rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  details summary {
+    padding: 1rem !important;
+  }
+  
+  details .px-6 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  /* Comparison cards - better mobile spacing */
+  .compare-row .grid {
+    gap: 0.75rem !important;
+  }
+  
+  .compare-row .p-6,
+  .compare-row .lg\:p-8 {
+    padding: 1rem !important;
+  }
+  
+  /* Stats bar - 2x2 grid on mobile */
+  .result-stat .grid-cols-2 {
+    gap: 1rem !important;
+  }
+  
+  .result-stat .text-3xl {
+    font-size: 1.5rem !important;
+  }
+  
+  /* Award section - smaller on mobile */
+  #award h2 {
+    font-size: 1.75rem !important;
+  }
+  
+  #award .text-xl {
+    font-size: 1rem !important;
+  }
+  
+  /* Better button sizing */
+  button[onclick="openModal()"] {
+    padding: 0.875rem 1.5rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  /* Scroll items - less dramatic animation offset */
+  .scroll-item {
+    transform: translateY(15px) scale(0.99);
+  }
+  
+  /* Pricing cards - full width on mobile */
+  #pricing .md\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Footer spacing */
+  footer {
+    padding: 2rem 0 !important;
+  }
+  
+  /* Better padding for containers */
+  .px-6 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  /* Phone journey section - adjusted for mobile */
+  .phone-journey-sticky {
+    position: relative !important;
+  }
+}
+
+/* Small phones (iPhone SE, etc) */
+@media (max-width: 374px) {
+  .hero-headline {
+    font-size: 1.5rem !important;
+  }
+  
+  h2.font-heading {
+    font-size: 1.5rem !important;
+  }
+  
+  button[onclick="openModal()"] {
+    padding: 0.75rem 1.25rem !important;
+    font-size: 0.85rem !important;
+  }
+  
+  /* Even tighter section spacing */
+  section {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+}
+
+/* Tablet portrait */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Two column layout for pricing on tablet */
+  #pricing .md\:grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  /* Center the third pricing card */
+  #pricing .md\:grid-cols-3 > :last-child {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    margin: 0 auto;
+  }
+}
+
+/* Safe area insets for notched phones */
+@supports (padding: env(safe-area-inset-bottom)) {
+  footer {
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom)) !important;
+  }
+  
+  #signup-modal,
+  #recommend-modal {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Improve text readability on mobile */
+@media (max-width: 767px) {
+  p, li, span {
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Smooth momentum scrolling on iOS */
+  html {
+    -webkit-overflow-scrolling: touch;
+  }
+}
