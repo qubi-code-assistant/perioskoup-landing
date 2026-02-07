@@ -5,7 +5,8 @@ Allow: /
 # Sitemap
 Sitemap: https://perioskoup.com/sitemap.xml
 
+# Crawl-delay (optional, be nice to servers)
+Crawl-delay: 1
+
 # Disallow admin/private paths (if any)
 Disallow: /api/
-Disallow: /_next/
-Disallow: /admin/
