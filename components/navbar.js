@@ -8,18 +8,16 @@ export function getNavbar(options = {}) {
 
   return `
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="flex items-center justify-between h-16 md:h-20">
                 <a href="${prefix}" class="flex items-center gap-2 md:gap-3">
                     <img src="/logo-brand.svg" alt="Perioskoup Logo" class="h-8 md:h-10 w-auto">
                 </a>
                 <div class="hidden md:flex items-center gap-1">
+                    <a href="/features.html" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Features</a>
                     <a href="${homePrefix}how-it-works" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">How It Works</a>
-                    <a href="${homePrefix}award" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Award</a>
-                    <a href="${homePrefix}faq" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">FAQ</a>
-                    <a href="${homePrefix}pricing" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Pricing</a>
+                    <a href="/about.html" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">About</a>
                     <a href="/blog/" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Blog</a>
-                    <a href="/calculator.html" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">ROI Calculator</a>
                     <a href="/contact.html" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Contact</a>
                 </div>
                 <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden p-2 text-white/80 hover:text-white">
@@ -31,12 +29,10 @@ export function getNavbar(options = {}) {
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-white/10" style="background: rgba(35, 73, 102, 0.98);">
             <div class="px-4 py-4 space-y-1">
+                <a href="/features.html" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">Features</a>
                 <a href="${homePrefix}how-it-works" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">How It Works</a>
-                <a href="${homePrefix}award" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">Award</a>
-                <a href="${homePrefix}faq" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">FAQ</a>
-                <a href="${homePrefix}pricing" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">Pricing</a>
+                <a href="/about.html" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">About</a>
                 <a href="/blog/" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">Blog</a>
-                <a href="/calculator.html" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">ROI Calculator</a>
                 <a href="/contact.html" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">Contact</a>
             </div>
         </div>
