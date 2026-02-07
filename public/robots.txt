@@ -1,16 +1,11 @@
-# Perioskoup - AI Dental Companion
-# https://perioskoup.com
-
+# Perioskoup Robots.txt
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Sitemap
 Sitemap: https://perioskoup.com/sitemap.xml
 
-# Crawl-delay for respectful crawling
-Crawl-delay: 1
-
-# Block common non-essential paths
+# Disallow admin/private paths (if any)
 Disallow: /api/
-Disallow: /*.json$
-Disallow: /node_modules/
+Disallow: /_next/
+Disallow: /admin/

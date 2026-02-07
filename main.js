@@ -1,8 +1,16 @@
 import './style.css';
 import { animate, inView, stagger } from 'motion';
+import { initNavbar } from './components/navbar.js';
 
 // Check for reduced motion preference
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Initialize navbar immediately (before DOMContentLoaded for faster render)
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initNavbar);
+} else {
+  initNavbar();
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   // Remove no-js class if present
@@ -24,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initFormHandler();
   initModal();
+  initPhoneJourney();
 });
 
 // ========================================
@@ -785,4 +794,421 @@ function showRecommendErrorState(submitBtn, originalHTML) {
   setTimeout(() => {
     submitBtn.innerHTML = originalHTML;
   }, 3000);
+}
+
+// ========================================
+// PHONE JOURNEY - Scroll-based animation
+// ========================================
+function initPhoneJourney() {
+  const journey = document.querySelector('.phone-journey');
+  if (!journey) return;
+
+  const screens = journey.querySelectorAll('.phone-screen');
+  const stepContents = journey.querySelectorAll('.phone-step-content');
+  const stepContentsMobile = journey.querySelectorAll('.phone-step-content-mobile');
+  const stepDots = journey.querySelectorAll('.step-dot');
+  const stepDotsMobile = journey.querySelectorAll('.step-dot-mobile');
+  
+  let currentStep = 1;
+  let targetStep = 1;
+  const totalSteps = 4;
+
+  function updateStep(newStep, immediate = false) {
+    if (newStep === currentStep && !immediate) return;
+    if (newStep < 1 || newStep > totalSteps) return;
+
+    // Update screens with smooth transitions
+    screens.forEach((screen, i) => {
+      const screenNum = i + 1;
+      screen.classList.remove('active', 'exit-left');
+      
+      if (screenNum === newStep) {
+        screen.classList.add('active');
+      } else if (screenNum < newStep) {
+        screen.classList.add('exit-left');
+      }
+    });
+
+    // Update step content (desktop) - crossfade
+    stepContents.forEach(content => {
+      const step = parseInt(content.dataset.step);
+      if (step === newStep) {
+        content.classList.remove('hidden');
+      } else {
+        content.classList.add('hidden');
+      }
+    });
+
+    // Update step content (mobile)
+    stepContentsMobile.forEach(content => {
+      const step = parseInt(content.dataset.step);
+      if (step === newStep) {
+        content.classList.remove('hidden');
+      } else {
+        content.classList.add('hidden');
+      }
+    });
+
+    // Update step dots (desktop) with smooth color transition
+    stepDots.forEach(dot => {
+      const step = parseInt(dot.dataset.step);
+      const dotCircle = dot.querySelector('.w-4');
+      const dotText = dot.querySelector('span');
+      
+      if (step === newStep) {
+        dot.classList.add('active');
+        if (dotCircle) {
+          dotCircle.style.background = '#8ad33d';
+          dotCircle.style.boxShadow = '0 0 20px rgba(138, 211, 61, 0.4)';
+        }
+        if (dotText) {
+          dotText.style.opacity = '1';
+          dotText.style.color = 'white';
+        }
+      } else if (step < newStep) {
+        dot.classList.remove('active');
+        if (dotCircle) {
+          dotCircle.style.background = 'rgba(138, 211, 61, 0.3)';
+          dotCircle.style.boxShadow = 'none';
+        }
+        if (dotText) {
+          dotText.style.opacity = '0.5';
+          dotText.style.color = 'rgba(255,255,255,0.5)';
+        }
+      } else {
+        dot.classList.remove('active');
+        if (dotCircle) {
+          dotCircle.style.background = 'rgba(255, 255, 255, 0.2)';
+          dotCircle.style.boxShadow = 'none';
+        }
+        if (dotText) {
+          dotText.style.opacity = '0.5';
+          dotText.style.color = 'rgba(255,255,255,0.5)';
+        }
+      }
+    });
+
+    // Update step dots (mobile)
+    stepDotsMobile.forEach(dot => {
+      const step = parseInt(dot.dataset.step);
+      if (step === newStep) {
+        dot.style.background = '#8ad33d';
+        dot.style.transform = 'scale(1.3)';
+      } else if (step < newStep) {
+        dot.style.background = 'rgba(138, 211, 61, 0.3)';
+        dot.style.transform = 'scale(1)';
+      } else {
+        dot.style.background = 'rgba(255, 255, 255, 0.2)';
+        dot.style.transform = 'scale(1)';
+      }
+    });
+
+    currentStep = newStep;
+  }
+
+  // Initialize first screen
+  updateStep(1, true);
+
+  // Click handlers for step dots
+  stepDots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const step = parseInt(dot.dataset.step);
+      targetStep = step;
+      updateStep(step);
+    });
+  });
+
+  // Smooth scroll handler with RAF
+  let ticking = false;
+
+  function handleScroll() {
+    const journeyRect = journey.getBoundingClientRect();
+    const journeyHeight = journey.offsetHeight;
+    const viewportHeight = window.innerHeight;
+    
+    // Calculate scroll progress within the journey section
+    const scrollStart = -journeyRect.top;
+    const scrollRange = journeyHeight - viewportHeight;
+    
+    // Progress from 0 to 1
+    let progress = scrollStart / scrollRange;
+    progress = Math.max(0, Math.min(1, progress));
+    
+    // Map progress to steps (1-4)
+    const stepProgress = progress * (totalSteps - 0.01);
+    const step = Math.floor(stepProgress) + 1;
+    const clampedStep = Math.max(1, Math.min(totalSteps, step));
+    
+    if (clampedStep !== targetStep) {
+      targetStep = clampedStep;
+      updateStep(clampedStep);
+    }
+    
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(handleScroll);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  handleScroll(); // Initial call
+}
+
+// ========================================
+// TRANSFORMATION SECTION ANIMATIONS
+// ========================================
+
+// 3D Tilt Effect
+function initTiltCards() {
+  const cards = document.querySelectorAll('.tilt-card');
+  
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = (y - centerY) / 20;
+      const rotateY = (centerX - x) / 20;
+      
+      card.style.setProperty('--rotateX', `${rotateX}deg`);
+      card.style.setProperty('--rotateY', `${rotateY}deg`);
+      card.style.setProperty('--mouseX', `${(x / rect.width) * 100}%`);
+      card.style.setProperty('--mouseY', `${(y / rect.height) * 100}%`);
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+    });
+  });
+}
+
+// Counting Animation for Stats
+function initStatCounters() {
+  const counters = document.querySelectorAll('[data-count]');
+  
+  const observerOptions = {
+    threshold: 0.5,
+    rootMargin: '0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+        entry.target.classList.add('counted');
+        animateCounter(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  counters.forEach(counter => observer.observe(counter));
+}
+
+function animateCounter(element) {
+  const target = element.dataset.count;
+  const suffix = element.dataset.suffix || '';
+  const duration = 1500;
+  const isNumber = !isNaN(parseFloat(target));
+  
+  if (!isNumber) {
+    element.textContent = target + suffix;
+    return;
+  }
+  
+  const targetNum = parseFloat(target);
+  const startTime = performance.now();
+  
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    
+    // Ease out cubic
+    const easeOut = 1 - Math.pow(1 - progress, 3);
+    const current = Math.round(targetNum * easeOut);
+    
+    element.textContent = current + suffix;
+    
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      element.textContent = target + suffix;
+    }
+  }
+  
+  requestAnimationFrame(update);
+}
+
+// Staggered Reveal Animation
+function initStaggeredReveal() {
+  const staggerContainers = document.querySelectorAll('.stagger-container');
+  
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('revealed')) {
+        entry.target.classList.add('revealed');
+        const items = entry.target.querySelectorAll('.stagger-item');
+        items.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add('visible');
+          }, index * 100);
+        });
+      }
+    });
+  }, observerOptions);
+  
+  staggerContainers.forEach(container => observer.observe(container));
+}
+
+// Results Bar Animation
+function initResultsBar() {
+  const resultStats = document.querySelectorAll('.result-stat');
+  
+  const observerOptions = {
+    threshold: 0.3,
+    rootMargin: '0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+        entry.target.classList.add('animated');
+        const stats = entry.target.querySelectorAll('.result-stat-item');
+        stats.forEach((stat, index) => {
+          setTimeout(() => {
+            stat.classList.add('visible');
+          }, index * 150);
+        });
+      }
+    });
+  }, observerOptions);
+  
+  resultStats.forEach(stat => observer.observe(stat));
+}
+
+// The Divide Section Animation
+function initTheDivide() {
+  const divideContainer = document.getElementById('the-divide');
+  if (!divideContainer) return;
+
+  const divideLine = divideContainer.querySelector('.divide-line-inner');
+  const compareRows = divideContainer.querySelectorAll('.compare-row');
+  
+  let animated = false;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !animated) {
+        animated = true;
+        
+        // 1. Animate the divider line drawing down
+        if (divideLine) {
+          animate(divideLine, 
+            { height: ['0%', '100%'] },
+            { duration: 1.2, easing: [0.22, 1, 0.36, 1] }
+          );
+        }
+        
+        // 2. Animate rows with stagger
+        compareRows.forEach((row, index) => {
+          const problem = row.querySelector('.compare-problem > div');
+          const solution = row.querySelector('.compare-solution > div');
+          const problemIcon = row.querySelector('.compare-problem .w-16');
+          const solutionIcon = row.querySelector('.compare-solution .w-16');
+          const delay = 200 + (index * 200);
+          
+          setTimeout(() => {
+            // Fade in the row
+            animate(row,
+              { opacity: [0, 1], y: [30, 0] },
+              { duration: 0.6, easing: [0.22, 1, 0.36, 1] }
+            );
+            
+            // Slide problem card from left (desktop)
+            if (window.innerWidth >= 1024 && problem) {
+              animate(problem,
+                { x: [-40, 0], opacity: [0, 1] },
+                { duration: 0.6, easing: [0.22, 1, 0.36, 1] }
+              );
+            }
+            
+            // Slide solution card from right (desktop)
+            if (window.innerWidth >= 1024 && solution) {
+              animate(solution,
+                { x: [40, 0], opacity: [0, 1] },
+                { duration: 0.6, easing: [0.22, 1, 0.36, 1] }
+              );
+            }
+            
+            // Icon pop animation with delay
+            if (problemIcon) {
+              setTimeout(() => {
+                animate(problemIcon,
+                  { scale: [0.5, 1.1, 1] },
+                  { duration: 0.4, easing: [0.34, 1.56, 0.64, 1] }
+                );
+              }, 200);
+            }
+            
+            if (solutionIcon) {
+              setTimeout(() => {
+                animate(solutionIcon,
+                  { scale: [0.5, 1.1, 1] },
+                  { duration: 0.4, easing: [0.34, 1.56, 0.64, 1] }
+                );
+              }, 350);
+            }
+          }, delay);
+        });
+        
+        // 3. Add pulse glow to divider line after animation
+        if (divideLine) {
+          setTimeout(() => {
+            divideLine.classList.add('divide-pulse');
+          }, 1500);
+        }
+      }
+    });
+  }, { threshold: 0.15 });
+
+  observer.observe(divideContainer);
+}
+
+// Initialize all transformation animations
+function initTransformationAnimations() {
+  initTiltCards();
+  initStatCounters();
+  initStaggeredReveal();
+  initResultsBar();
+  initTheDivide();
+  
+  // Card entrance animations
+  const cards = document.querySelectorAll('.card-enter-left, .card-enter-right');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+  
+  cards.forEach(card => observer.observe(card));
+}
+
+// Add to DOMContentLoaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initTransformationAnimations);
+} else {
+  initTransformationAnimations();
 }

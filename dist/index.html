@@ -314,8 +314,8 @@
         html { scrollbar-width: none; -ms-overflow-style: none; }
         html::-webkit-scrollbar { display: none; }
     </style>
-  <script type="module" crossorigin src="/assets/main-BF7EttZW.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/main-CplEAHNT.css">
+  <script type="module" crossorigin src="/assets/main-BmczgkCQ.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-DgW933n1.css">
 </head>
 <body class="text-white min-h-screen font-sans" style="background: linear-gradient(180deg, #234966 0%, #12222d 50%, #0a171e 100%);">
     <!-- Shared Navbar (injected by main.js) -->
@@ -396,7 +396,7 @@
             </div>
 
             <!-- Right: Phone with Floating Interaction Cards -->
-            <div class="hero-phone-container order-2 flex lg:justify-end lg:h-[700px] h-[400px] relative justify-center">
+            <div class="hero-phone-container order-2 flex lg:h-[600px] h-[400px] relative justify-center lg:justify-end lg:pr-0 lg:mr-[-40px]">
 
                 <!-- Notification Wave - Two-way communication -->
                 <div class="interaction-cards absolute inset-0 pointer-events-none hidden lg:block">
@@ -467,7 +467,7 @@
 
                 </div>
 
-                <img src="/app_image.png" alt="Perioskoup AI Dental Companion App Interface - Patient Tracking Dashboard for Dentists" width="350" height="700" fetchpriority="high" class="hero-phone w-auto h-full object-contain z-10 relative drop-shadow-2xl">
+                <img src="/app_image.png" alt="Perioskoup AI Dental Companion App Interface - Patient Tracking Dashboard for Dentists" width="350" height="700" fetchpriority="high" class="hero-phone w-auto h-full object-contain z-10 relative">
             </div>
         </div>
     </section>
@@ -475,140 +475,240 @@
     <!-- @transformation -->
     <section id="how-it-works" class="py-24 lg:py-32 relative overflow-hidden" style="background: linear-gradient(180deg, #0a171e 0%, #050c11 100%);">
         <!-- Background decoration -->
-        <div class="absolute top-1/2 left-0 w-[400px] h-[400px] bg-red-500/5 blur-[100px] rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
-        <div class="absolute top-1/2 right-0 w-[400px] h-[400px] bg-lime-500/5 blur-[100px] rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+        <div class="absolute top-1/2 left-0 w-[500px] h-[500px] bg-red-500/5 blur-[120px] rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+        <div class="absolute top-1/2 right-0 w-[500px] h-[500px] bg-lime-500/5 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
 
-        <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-6xl mx-auto px-6">
             <!-- Header -->
-            <div class="text-center mb-16 scroll-item">
+            <div class="text-center mb-20 scroll-item">
                 <h2 class="font-heading text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">See the Difference</h2>
                 <p class="text-lg text-white/60 max-w-2xl mx-auto">Transform how your practice manages patient care between visits.</p>
             </div>
 
-            <!-- Before/After Grid -->
-            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
+            <!-- The Divide Container -->
+            <div class="divide-container relative" id="the-divide">
                 
-                <!-- WITHOUT - Left Side -->
-                <div class="card-enter-left">
-                    <div class="tilt-card bg-gradient-to-br from-red-500/10 to-red-900/5 border border-red-500/20 rounded-3xl p-8 lg:p-10 h-full relative overflow-hidden">
-                        <!-- Header -->
-                        <div class="flex items-center gap-3 mb-8">
-                            <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center">
-                                <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                                </svg>
-                            </div>
-                            <h3 class="font-heading text-2xl font-bold text-red-400">Without Perioskoup</h3>
+                <!-- Column Headers -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-16 mb-12">
+                    <div class="flex items-center justify-center lg:justify-end gap-3">
+                        <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
                         </div>
-
-                        <!-- Pain Points with Stats -->
-                        <ul class="space-y-5 stagger-container">
-                            <li class="stagger-item flex items-start gap-4">
-                                <div class="min-w-[52px] h-[52px] rounded-xl bg-red-500/20 flex items-center justify-center flex-shrink-0">
-                                    <span class="text-red-400 font-bold text-lg" data-count="80" data-suffix="%">0%</span>
-                                </div>
-                                <div>
-                                    <p class="text-white font-medium">Patients forget care instructions</p>
-                                    <p class="text-white/50 text-sm mt-1">Need re-explanation at every recall appointment</p>
-                                </div>
-                            </li>
-                            <li class="stagger-item flex items-start gap-4">
-                                <div class="min-w-[52px] h-[52px] rounded-xl bg-red-500/20 flex items-center justify-center flex-shrink-0">
-                                    <span class="text-red-400 font-bold text-lg" data-count="15" data-suffix="m">0m</span>
-                                </div>
-                                <div>
-                                    <p class="text-white font-medium">Wasted on repeat coaching</p>
-                                    <p class="text-white/50 text-sm mt-1">Per high-risk patient, every single visit</p>
-                                </div>
-                            </li>
-                            <li class="stagger-item flex items-start gap-4">
-                                <div class="min-w-[52px] h-[52px] rounded-xl bg-red-500/20 flex items-center justify-center flex-shrink-0">
-                                    <span class="text-red-400 font-bold text-lg" data-count="50" data-suffix="%">0%</span>
-                                </div>
-                                <div>
-                                    <p class="text-white font-medium">Return with preventable progression</p>
-                                    <p class="text-white/50 text-sm mt-1">Disease worsens between visits without guidance</p>
-                                </div>
-                            </li>
-                            <li class="stagger-item flex items-start gap-4">
-                                <div class="min-w-[52px] h-[52px] rounded-xl bg-red-500/20 flex items-center justify-center flex-shrink-0">
-                                    <span class="text-red-400 font-bold text-lg" data-count="20" data-suffix="%">0%</span>
-                                </div>
-                                <div>
-                                    <p class="text-white font-medium">Miss recall appointments</p>
-                                    <p class="text-white/50 text-sm mt-1">Lost revenue and deteriorating outcomes</p>
-                                </div>
-                            </li>
-                        </ul>
+                        <span class="text-red-400 font-bold text-xl">Without Perioskoup</span>
+                    </div>
+                    <div class="flex items-center justify-center lg:justify-start gap-3">
+                        <div class="w-10 h-10 rounded-full bg-lime-500/20 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-lime-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <span class="text-lime-400 font-bold text-xl">With Perioskoup</span>
                     </div>
                 </div>
 
-                <!-- WITH - Right Side -->
-                <div class="card-enter-right">
-                    <div class="tilt-card bg-gradient-to-br from-lime-500/10 to-lime-900/5 border border-lime-500/20 rounded-3xl p-8 lg:p-10 h-full relative overflow-hidden">
-                        <!-- Header -->
-                        <div class="flex items-center gap-3 mb-8">
-                            <div class="w-10 h-10 rounded-full bg-lime-500/20 flex items-center justify-center">
-                                <svg class="w-5 h-5 text-lime-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <h3 class="font-heading text-2xl font-bold text-lime-400">With Perioskoup</h3>
-                        </div>
-
-                        <!-- Benefits -->
-                        <ul class="space-y-5 stagger-container">
-                            <li class="stagger-item flex items-start gap-4">
-                                <div class="w-6 h-6 rounded-full bg-lime-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <svg class="w-3 h-3 text-lime-400" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-white font-medium">AI guides patients daily between visits</p>
-                                    <p class="text-white/50 text-sm mt-1">Personalized reminders and care instructions</p>
-                                </div>
-                            </li>
-                            <li class="stagger-item flex items-start gap-4">
-                                <div class="w-6 h-6 rounded-full bg-lime-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <svg class="w-3 h-3 text-lime-400" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-white font-medium">Patients arrive prepared and informed</p>
-                                    <p class="text-white/50 text-sm mt-1">Focus on care, not re-education</p>
-                                </div>
-                            </li>
-                            <li class="stagger-item flex items-start gap-4">
-                                <div class="w-6 h-6 rounded-full bg-lime-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <svg class="w-3 h-3 text-lime-400" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-white font-medium">Real-time compliance tracking</p>
-                                    <p class="text-white/50 text-sm mt-1">Know who needs attention before they walk in</p>
-                                </div>
-                            </li>
-                            <li class="stagger-item flex items-start gap-4">
-                                <div class="w-6 h-6 rounded-full bg-lime-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <svg class="w-3 h-3 text-lime-400" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-white font-medium">Better outcomes, fewer relapses</p>
-                                    <p class="text-white/50 text-sm mt-1">Patients stay on track with gamification</p>
-                                </div>
-                            </li>
-                        </ul>
+                <!-- Central Divider Line (Desktop) -->
+                <div class="divide-line hidden lg:block absolute left-1/2 top-24 bottom-32 w-px -translate-x-1/2 z-10">
+                    <div class="divide-line-inner h-0 w-[2px] bg-gradient-to-b from-lime-400/40 via-lime-400 to-lime-500 relative -translate-x-[0.5px]">
+                        <div class="absolute inset-0 w-[8px] -translate-x-[3px] bg-lime-400/20 blur-md"></div>
                     </div>
+                </div>
+
+                <!-- Comparison Rows -->
+                <div class="space-y-6 lg:space-y-8">
+                    
+                    <!-- Row 1: Forgotten Instructions → AI Guidance -->
+                    <div class="compare-row opacity-0 translate-y-4">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-16">
+                            <!-- Problem -->
+                            <div class="compare-problem group">
+                                <div class="bg-gradient-to-br from-red-500/10 to-transparent border border-red-500/20 rounded-2xl p-6 lg:p-8 h-full transition-all duration-300 hover:border-red-500/40 hover:bg-red-500/5">
+                                    <div class="flex items-start gap-5">
+                                        <!-- Icon -->
+                                        <div class="w-16 h-16 rounded-2xl bg-red-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                            <svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-baseline gap-2 mb-2">
+                                                <span class="text-3xl font-bold text-red-400" data-count="80" data-suffix="%">0%</span>
+                                                <span class="text-white/40 text-sm">of patients</span>
+                                            </div>
+                                            <p class="text-white font-semibold text-lg">Forget care instructions</p>
+                                            <p class="text-white/50 text-sm mt-2">Requiring re-explanation at every single appointment</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Solution -->
+                            <div class="compare-solution group">
+                                <div class="bg-gradient-to-br from-lime-500/10 to-transparent border border-lime-500/20 rounded-2xl p-6 lg:p-8 h-full transition-all duration-300 hover:border-lime-500/40 hover:bg-lime-500/5 relative overflow-hidden">
+                                    <div class="absolute top-0 right-0 w-32 h-32 bg-lime-400/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
+                                    <div class="flex items-start gap-5 relative">
+                                        <!-- Icon -->
+                                        <div class="w-16 h-16 rounded-2xl bg-lime-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                            <svg class="w-8 h-8 text-lime-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 9l1.5 1.5 3-3"/>
+                                            </svg>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="text-lime-400 font-bold text-lg mb-1">AI Daily Guidance</p>
+                                            <p class="text-white font-semibold text-lg">Personalized reminders</p>
+                                            <p class="text-white/50 text-sm mt-2">Smart notifications keep patients on track between visits</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Wasted Time → Prepared Patients -->
+                    <div class="compare-row opacity-0 translate-y-4">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-16">
+                            <!-- Problem -->
+                            <div class="compare-problem group">
+                                <div class="bg-gradient-to-br from-red-500/10 to-transparent border border-red-500/20 rounded-2xl p-6 lg:p-8 h-full transition-all duration-300 hover:border-red-500/40 hover:bg-red-500/5">
+                                    <div class="flex items-start gap-5">
+                                        <!-- Icon -->
+                                        <div class="w-16 h-16 rounded-2xl bg-red-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                            <svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-baseline gap-2 mb-2">
+                                                <span class="text-3xl font-bold text-red-400" data-count="15" data-suffix=" min">0 min</span>
+                                                <span class="text-white/40 text-sm">wasted</span>
+                                            </div>
+                                            <p class="text-white font-semibold text-lg">Repeat coaching every visit</p>
+                                            <p class="text-white/50 text-sm mt-2">Per high-risk patient, explaining the same instructions again</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Solution -->
+                            <div class="compare-solution group">
+                                <div class="bg-gradient-to-br from-lime-500/10 to-transparent border border-lime-500/20 rounded-2xl p-6 lg:p-8 h-full transition-all duration-300 hover:border-lime-500/40 hover:bg-lime-500/5 relative overflow-hidden">
+                                    <div class="absolute top-0 right-0 w-32 h-32 bg-lime-400/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
+                                    <div class="flex items-start gap-5 relative">
+                                        <!-- Icon -->
+                                        <div class="w-16 h-16 rounded-2xl bg-lime-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                            <svg class="w-8 h-8 text-lime-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="text-lime-400 font-bold text-lg mb-1">Patients Arrive Prepared</p>
+                                            <p class="text-white font-semibold text-lg">Focus on care, not education</p>
+                                            <p class="text-white/50 text-sm mt-2">They already know what to do — you just review progress</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Disease Progression → Real-time Tracking -->
+                    <div class="compare-row opacity-0 translate-y-4">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-16">
+                            <!-- Problem -->
+                            <div class="compare-problem group">
+                                <div class="bg-gradient-to-br from-red-500/10 to-transparent border border-red-500/20 rounded-2xl p-6 lg:p-8 h-full transition-all duration-300 hover:border-red-500/40 hover:bg-red-500/5">
+                                    <div class="flex items-start gap-5">
+                                        <!-- Icon -->
+                                        <div class="w-16 h-16 rounded-2xl bg-red-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                            <svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 6L9 12.75l4.286-4.286a11.948 11.948 0 014.306 6.43l.776 2.898m0 0l3.182-5.511m-3.182 5.51l-5.511-3.181"/>
+                                            </svg>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-baseline gap-2 mb-2">
+                                                <span class="text-3xl font-bold text-red-400" data-count="50" data-suffix="%">0%</span>
+                                                <span class="text-white/40 text-sm">of patients</span>
+                                            </div>
+                                            <p class="text-white font-semibold text-lg">Return with progression</p>
+                                            <p class="text-white/50 text-sm mt-2">Disease worsens between visits without proper guidance</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Solution -->
+                            <div class="compare-solution group">
+                                <div class="bg-gradient-to-br from-lime-500/10 to-transparent border border-lime-500/20 rounded-2xl p-6 lg:p-8 h-full transition-all duration-300 hover:border-lime-500/40 hover:bg-lime-500/5 relative overflow-hidden">
+                                    <div class="absolute top-0 right-0 w-32 h-32 bg-lime-400/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
+                                    <div class="flex items-start gap-5 relative">
+                                        <!-- Icon -->
+                                        <div class="w-16 h-16 rounded-2xl bg-lime-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                            <svg class="w-8 h-8 text-lime-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="text-lime-400 font-bold text-lg mb-1">Real-time Tracking</p>
+                                            <p class="text-white font-semibold text-lg">Know who needs attention</p>
+                                            <p class="text-white/50 text-sm mt-2">See compliance data before they walk in the door</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 4: Missed Appointments → Better Outcomes -->
+                    <div class="compare-row opacity-0 translate-y-4">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-16">
+                            <!-- Problem -->
+                            <div class="compare-problem group">
+                                <div class="bg-gradient-to-br from-red-500/10 to-transparent border border-red-500/20 rounded-2xl p-6 lg:p-8 h-full transition-all duration-300 hover:border-red-500/40 hover:bg-red-500/5">
+                                    <div class="flex items-start gap-5">
+                                        <!-- Icon -->
+                                        <div class="w-16 h-16 rounded-2xl bg-red-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                            <svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14l2 2 4-4"/>
+                                            </svg>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-baseline gap-2 mb-2">
+                                                <span class="text-3xl font-bold text-red-400" data-count="20" data-suffix="%">0%</span>
+                                                <span class="text-white/40 text-sm">no-show rate</span>
+                                            </div>
+                                            <p class="text-white font-semibold text-lg">Missed recall appointments</p>
+                                            <p class="text-white/50 text-sm mt-2">Lost revenue and deteriorating patient outcomes</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Solution -->
+                            <div class="compare-solution group">
+                                <div class="bg-gradient-to-br from-lime-500/10 to-transparent border border-lime-500/20 rounded-2xl p-6 lg:p-8 h-full transition-all duration-300 hover:border-lime-500/40 hover:bg-lime-500/5 relative overflow-hidden">
+                                    <div class="absolute top-0 right-0 w-32 h-32 bg-lime-400/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
+                                    <div class="flex items-start gap-5 relative">
+                                        <!-- Icon -->
+                                        <div class="w-16 h-16 rounded-2xl bg-lime-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                            <svg class="w-8 h-8 text-lime-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0"/>
+                                            </svg>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="text-lime-400 font-bold text-lg mb-1">Better Outcomes</p>
+                                            <p class="text-white font-semibold text-lg">Gamification drives engagement</p>
+                                            <p class="text-white/50 text-sm mt-2">Patients stay motivated with streaks, rewards & progress tracking</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
             <!-- Results Bar -->
-            <div class="mt-16 result-stat">
+            <div class="mt-20 result-stat">
                 <div class="bg-white/5 border border-white/10 rounded-2xl p-8 grid grid-cols-2 md:grid-cols-4 gap-8">
                     <div class="text-center result-stat-item">
                         <div class="text-3xl lg:text-4xl font-bold text-lime-400 mb-2" data-count="40" data-suffix="%">0%</div>

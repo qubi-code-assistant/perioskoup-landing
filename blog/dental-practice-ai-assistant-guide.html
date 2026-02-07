@@ -14,8 +14,10 @@
 
     <!-- Favicon -->
     
-    <link rel="icon" type="image/png" sizes="32x32" href="/logo_with_bg.png">
-    <link rel="apple-touch-icon" href="/logo_with_bg.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
     <!-- Open Graph -->
     <meta property="og:type" content="article">
@@ -90,7 +92,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -111,7 +113,7 @@
                         rice: '#F2FCE3',
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Gabarito', 'sans-serif'],
                     },
                 }
             }
@@ -120,28 +122,84 @@
 
     <style>
         .prose { max-width: none; }
-        .prose h2 { color: #1D3449; font-size: 1.75rem; font-weight: 700; margin-top: 3rem; margin-bottom: 1.25rem; }
-        .prose h3 { color: #1D3449; font-size: 1.25rem; font-weight: 600; margin-top: 2rem; margin-bottom: 1rem; }
-        .prose p { color: rgba(29, 52, 73, 0.75); margin-bottom: 1.25rem; line-height: 1.8; }
-        .prose ul, .prose ol { color: rgba(29, 52, 73, 0.75); margin-bottom: 1.25rem; padding-left: 1.5rem; }
+        .prose h2 { color: white; font-size: 1.75rem; font-weight: 700; margin-top: 3rem; margin-bottom: 1.25rem; }
+        .prose h3 { color: white; font-size: 1.25rem; font-weight: 600; margin-top: 2rem; margin-bottom: 1rem; }
+        .prose p { color: rgba(255, 255, 255, 0.7); margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose ul, .prose ol { color: rgba(255, 255, 255, 0.7); margin-bottom: 1.25rem; padding-left: 1.5rem; }
         .prose li { margin-bottom: 0.75rem; line-height: 1.7; }
         .prose ul li { list-style-type: disc; }
         .prose ol li { list-style-type: decimal; }
-        .prose a { color: #3BAB9F; text-decoration: underline; }
-        .prose a:hover { color: #4ECDC4; }
-        .prose strong { color: #1D3449; }
-        .prose blockquote { border-left: 4px solid #3BAB9F; padding-left: 1.5rem; margin: 2rem 0; font-style: italic; color: rgba(29, 52, 73, 0.8); }
+        .prose a { color: #a3e635; text-decoration: underline; }
+        .prose a:hover { color: #bef264; }
+        .prose strong { color: white; }
+        .prose blockquote { border-left: 4px solid #a3e635; padding-left: 1.5rem; margin: 2rem 0; font-style: italic; color: rgba(255, 255, 255, 0.8); }
     </style>
 </head>
 <body class="text-white min-h-screen" style="background: linear-gradient(180deg, #234966 0%, #12222d 50%, #0a171e 100%);">
-    <!-- Shared Navbar (injected by main.js) -->
-    <div id="navbar-placeholder"></div>
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <a href="/" class="flex items-center gap-2 md:gap-3">
+                    <img src="/logo-brand.svg" alt="Perioskoup Logo" class="h-8 md:h-10 w-auto">
+                </a>
+                <div class="hidden md:flex items-center gap-1">
+                    <a href="/#how-it-works" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">How It Works</a>
+                    <a href="/#award" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Award</a>
+                    <a href="/#faq" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">FAQ</a>
+                    <a href="/#pricing" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Pricing</a>
+                    <a href="/blog/" class="px-4 py-2 text-sm font-medium text-lime-400 transition-all">Blog</a>
+                    <a href="/calculator.html" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">ROI Calculator</a>
+                    <a href="/contact.html" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Contact</a>
+                </div>
+                <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden p-2 text-white/80 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-white/10" style="background: rgba(35, 73, 102, 0.98);">
+            <div class="px-4 py-4 space-y-1">
+                <a href="/#how-it-works" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">How It Works</a>
+                <a href="/#award" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">Award</a>
+                <a href="/#faq" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">FAQ</a>
+                <a href="/#pricing" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">Pricing</a>
+                <a href="/blog/" class="block px-4 py-3 text-sm font-medium text-lime-400 hover:bg-white/10 rounded-lg">Blog</a>
+                <a href="/calculator.html" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">ROI Calculator</a>
+                <a href="/contact.html" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">Contact</a>
+            </div>
+        </div>
+    </nav>
 
 
         
 
     <!-- Article Header -->
-    <section class="py-16 border-b border-white/10">
+    
+    <!-- Breadcrumbs -->
+    <nav aria-label="Breadcrumb" class="max-w-7xl mx-auto px-6 pt-20 md:pt-24">
+      <ol itemscope itemtype="https://schema.org/BreadcrumbList" class="flex flex-wrap items-center text-xs md:text-sm">
+        
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="flex items-center">
+      
+      <a itemprop="item" href="/" class="text-white/50 hover:text-white/70 transition-colors"><span itemprop="name">Home</span></a>
+      <meta itemprop="position" content="1" />
+    </li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="flex items-center">
+      <svg class="w-3 h-3 mx-2 text-white/30" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+      <a itemprop="item" href="/blog/" class="text-white/50 hover:text-white/70 transition-colors"><span itemprop="name">Blog</span></a>
+      <meta itemprop="position" content="2" />
+    </li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="flex items-center">
+      <svg class="w-3 h-3 mx-2 text-white/30" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+      <span itemprop="name" class="text-white/70">AI Assistants Guide</span>
+      <meta itemprop="position" content="3" />
+    </li>
+      </ol>
+    </nav>
+
+    <section class="pb-16 border-b" style="padding-top: 140px; border-white/10">
         <div class="max-w-4xl mx-auto px-6">
             <div class="flex items-center gap-3 mb-6">
                 <span class="px-3 py-1 rounded-full bg-pale/10 text-pale text-sm font-medium">Practice Management</span>
@@ -167,7 +225,7 @@
     </aside>
 
     <!-- Article Content -->
-    <main class="py-16">
+    <main class="pb-16" style="padding-top: 140px;">
         <div class="max-w-4xl mx-auto px-6">
             <article class="prose">
 

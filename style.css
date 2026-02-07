@@ -221,8 +221,8 @@ body {
 /* Tilted Phone Styling */
 .hero-phone {
   transform: rotate(-6deg) perspective(1000px) rotateY(-12deg) rotateX(5deg);
-  filter: drop-shadow(20px 40px 60px rgba(29, 52, 73, 0.25));
-  transition: transform 0.5s ease-out;
+  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.4));
+  transition: transform 0.5s ease-out, filter 0.5s ease-out;
 }
 
 .hero-phone:hover {
@@ -825,4 +825,287 @@ textarea:focus-visible {
   button:hover .shimmer-effect {
     animation: none;
   }
+}
+
+/* ========================================
+   PHONE JOURNEY - Scroll Animation
+   ======================================== */
+
+.phone-journey {
+  position: relative;
+}
+
+.phone-journey-sticky {
+  position: sticky;
+  top: 0;
+}
+
+/* Phone frame styling */
+.phone-frame {
+  background: linear-gradient(180deg, #0a171e 0%, #050c11 100%);
+}
+
+/* Phone screen transitions - smooth and buttery */
+.phone-screen {
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.phone-screen.active {
+  opacity: 1 !important;
+  transform: translateX(0) scale(1) !important;
+}
+
+.phone-screen.exit-left {
+  opacity: 0;
+  transform: translateX(-30%) scale(0.95);
+}
+
+.phone-screen:not(.active):not(.exit-left) {
+  transform: translateX(30%) scale(0.95);
+}
+
+/* QR Scan line animation */
+@keyframes qrScan {
+  0%, 100% { top: 0.5rem; }
+  50% { top: calc(100% - 0.5rem); }
+}
+
+.qr-scan-line {
+  animation: qrScan 2s ease-in-out infinite;
+}
+
+/* Step content transitions - smooth crossfade */
+.phone-step-content {
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.phone-step-content.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  position: absolute;
+  pointer-events: none;
+}
+
+.phone-step-content:not(.hidden) {
+  opacity: 1;
+  transform: translateY(0);
+  position: relative;
+}
+
+/* Step indicators - smooth transitions */
+.step-dot .w-4 {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.step-dot span {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.step-dot.active .w-4 {
+  background: #8ad33d;
+  box-shadow: 0 0 20px rgba(138, 211, 61, 0.4);
+}
+
+.step-dot.active span {
+  opacity: 1;
+  color: white;
+}
+
+/* Mobile step dots */
+.step-dot-mobile {
+  transition: all 0.3s ease-out;
+}
+
+.step-dot-mobile.active {
+  background: #8ad33d;
+  transform: scale(1.2);
+}
+
+/* Mobile content */
+.phone-step-content-mobile {
+  transition: opacity 0.3s ease-out;
+}
+
+.phone-step-content-mobile.hidden {
+  display: none;
+}
+
+/* ========================================
+   TRANSFORMATION SECTION ANIMATIONS
+   ======================================== */
+
+/* 3D Tilt Card Effect */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+}
+
+.tilt-card:hover {
+  transform: perspective(1000px) rotateX(var(--rotateX, 0deg)) rotateY(var(--rotateY, 0deg));
+}
+
+.tilt-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--mouseX, 50%) var(--mouseY, 50%),
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.tilt-card:hover::before {
+  opacity: 1;
+}
+
+/* Staggered bullet reveal */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.stagger-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stats counter animation */
+.stat-counter {
+  display: inline-block;
+}
+
+.stat-counter.counting {
+  animation: countPulse 0.1s ease-out;
+}
+
+@keyframes countPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Results bar stats */
+.result-stat {
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.result-stat.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Card entrance animations */
+.card-enter-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-enter-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-enter-left.visible,
+.card-enter-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===== The Divide Section ===== */
+.divide-container {
+  position: relative;
+}
+
+.divide-line {
+  pointer-events: none;
+}
+
+.divide-line-inner {
+  position: relative;
+}
+
+/* Intersection nodes */
+.divide-node {
+  box-shadow: 0 0 10px rgba(163, 230, 53, 0.5), 0 0 20px rgba(163, 230, 53, 0.3);
+}
+
+.divide-node .animate-ping {
+  animation: nodePing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  animation-delay: 1s;
+}
+
+@keyframes nodePing {
+  0% { transform: scale(1); opacity: 0.5; }
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+/* Checkmarks start scaled to 0 for animation */
+.checkmark-icon {
+  transform-origin: center;
+}
+
+/* Pulse animation for the divider line */
+.divide-pulse {
+  animation: dividePulse 3s ease-in-out infinite;
+}
+
+@keyframes dividePulse {
+  0%, 100% { 
+    box-shadow: 0 0 15px rgba(163, 230, 53, 0.4), 0 0 30px rgba(163, 230, 53, 0.15);
+  }
+  50% { 
+    box-shadow: 0 0 25px rgba(163, 230, 53, 0.6), 0 0 50px rgba(163, 230, 53, 0.25);
+  }
+}
+
+/* Compare bars hover effect */
+.compare-bar .compare-bar-left > div,
+.compare-bar .compare-bar-right > div {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (min-width: 1024px) {
+  .compare-bar:hover .compare-bar-left > div {
+    transform: translateX(-4px);
+    box-shadow: -10px 0 30px rgba(239, 68, 68, 0.1);
+  }
+  
+  .compare-bar:hover .compare-bar-right > div {
+    transform: translateX(4px);
+    box-shadow: 10px 0 30px rgba(163, 230, 53, 0.1);
+  }
+}
+
+/* Green glow on the right side boxes */
+.compare-bar-right > div {
+  position: relative;
+}
+
+.compare-bar-right > div::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(circle at center, rgba(163, 230, 53, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.compare-bar:hover .compare-bar-right > div::after {
+  opacity: 1;
 }

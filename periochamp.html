@@ -21,24 +21,40 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Gabarito:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
 
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
+                        navy: {
+                            900: '#050c11',
+                            800: '#0a171e',
+                            700: '#12222d',
+                            600: '#1d3449',
+                            500: '#234966',
+                        },
+                        lime: {
+                            700: '#6faa29',
+                            600: '#8ad33d',
+                            500: '#c0e57a',
+                            400: '#e0ffab',
+                        },
+                        // Keep old names as aliases for compatibility
                         nebula: '#1D3449',
-                        mint: '#3BAB9F',
-                        aqua: '#4ECDC4',
-                        pale: '#7ED3CC',
-                        rice: '#F2FCE3',
+                        mint: '#8AD33D',
+                        aqua: '#8AD33D',
+                        pale: '#c0e57a',
+                        rice: '#e0ffab',
                     },
                     fontFamily: {
-                        sans: ['Nunito', 'sans-serif'],
+                        heading: ['Dongle', 'sans-serif'],
+                        sans: ['Gabarito', 'sans-serif'],
                     },
                 }
             }
@@ -47,16 +63,89 @@
     <style>
         nav.nav-scrolled { background-color: rgba(18, 34, 45, 0.95); backdrop-filter: blur(20px); }
     </style>
+    <link rel="canonical" href="https://perioskoup.com/periochamp">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@perioskoup">
+    <meta name="twitter:title" content="PerioChamp Demo | Perioskoup">
+    <meta name="twitter:description" content="Watch how Perioskoup keeps perio patients on track and saves you 10-15 minutes per recall.">
+    <meta name="twitter:image" content="https://perioskoup.com/og-image.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Perioskoup Demo - Cut 10-15 Minutes Per Perio Recall",
+    "description": "Watch Dr. Anca Laura Constantin demonstrate how Perioskoup helps dental practices save time",
+    "uploadDate": "2025-12-01",
+    "thumbnailUrl": "https://perioskoup.com/og-image.png"
+}
+    </script>
 </head>
 <body class="text-white min-h-screen font-sans" style="background: linear-gradient(180deg, #234966 0%, #12222d 50%, #0a171e 100%);">
-    <!-- Shared Navbar (injected by main.js) -->
-    <div id="navbar-placeholder"></div>
+    
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <a href="/" class="flex items-center gap-2 md:gap-3">
+                    <img src="/logo-brand.svg" alt="Perioskoup Logo" class="h-8 md:h-10 w-auto">
+                </a>
+                <div class="hidden md:flex items-center gap-1">
+                    <a href="/#how-it-works" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">How It Works</a>
+                    <a href="/#award" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Award</a>
+                    <a href="/#faq" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">FAQ</a>
+                    <a href="/#pricing" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Pricing</a>
+                    <a href="/blog/" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Blog</a>
+                    <a href="/calculator.html" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">ROI Calculator</a>
+                    <a href="/contact.html" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Contact</a>
+                </div>
+                <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden p-2 text-white/80 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-white/10" style="background: rgba(35, 73, 102, 0.98);">
+            <div class="px-4 py-4 space-y-1">
+                <a href="/#how-it-works" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">How It Works</a>
+                <a href="/#award" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">Award</a>
+                <a href="/#faq" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">FAQ</a>
+                <a href="/#pricing" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">Pricing</a>
+                <a href="/blog/" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">Blog</a>
+                <a href="/calculator.html" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">ROI Calculator</a>
+                <a href="/contact.html" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">Contact</a>
+            </div>
+        </div>
+    </nav>
+
 
 
     
 
 
-    <main class="max-w-4xl mx-auto px-4 md:px-6 py-10 md:py-14">
+    
+    <!-- Breadcrumbs -->
+    <nav aria-label="Breadcrumb" class="max-w-7xl mx-auto px-6 pt-20 md:pt-24">
+      <ol itemscope itemtype="https://schema.org/BreadcrumbList" class="flex flex-wrap items-center text-xs md:text-sm">
+        
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="flex items-center">
+      
+      <a itemprop="item" href="/" class="text-white/50 hover:text-white/70 transition-colors"><span itemprop="name">Home</span></a>
+      <meta itemprop="position" content="1" />
+    </li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="flex items-center">
+      <svg class="w-3 h-3 mx-2 text-white/30" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+      <span itemprop="name" class="text-white/70">Demo</span>
+      <meta itemprop="position" content="2" />
+    </li>
+      </ol>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 md:px-6 pb-10 md:pb-14" style="padding-top: 140px;">
 
         <!-- ═══════════════════════════════════════════════════════════
              ABOVE THE FOLD: Headline + Video + CTA
@@ -133,7 +222,7 @@
              SUPPORT BLOCK: What you'll see + Micro-trust
         ════════════════════════════════════════════════════════════ -->
 
-        <section class="mb-10 bg-white/60 rounded-lg p-5 md:p-6 border border-white/10">
+        <section class="mb-10 bg-white/5 rounded-lg p-5 md:p-6 border border-white/10">
             <p class="text-sm font-semibold text-white/60 uppercase tracking-wide mb-3">What you'll see in the video</p>
             <ul class="space-y-2 text-white/70 text-sm md:text-base">
                 <li class="flex items-start gap-2">
@@ -164,7 +253,7 @@
         ════════════════════════════════════════════════════════════ -->
 
         <section class="space-y-2">
-            <details class="group border border-white/10 rounded-lg bg-white/60 overflow-hidden">
+            <details class="group border border-white/10 rounded-lg bg-white/5 overflow-hidden">
                 <summary class="px-5 py-3 cursor-pointer text-sm font-medium text-white hover:bg-mint/5 transition-colors flex items-center justify-between">
                     <span>Will my patients actually use an app?</span>
                     <svg class="w-5 h-5 text-white/40 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -174,7 +263,7 @@
                 </div>
             </details>
 
-            <details class="group border border-white/10 rounded-lg bg-white/60 overflow-hidden">
+            <details class="group border border-white/10 rounded-lg bg-white/5 overflow-hidden">
                 <summary class="px-5 py-3 cursor-pointer text-sm font-medium text-white hover:bg-mint/5 transition-colors flex items-center justify-between">
                     <span>Is my patient data secure?</span>
                     <svg class="w-5 h-5 text-white/40 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -184,7 +273,7 @@
                 </div>
             </details>
 
-            <details class="group border border-white/10 rounded-lg bg-white/60 overflow-hidden">
+            <details class="group border border-white/10 rounded-lg bg-white/5 overflow-hidden">
                 <summary class="px-5 py-3 cursor-pointer text-sm font-medium text-white hover:bg-mint/5 transition-colors flex items-center justify-between">
                     <span>What does "free pilot" mean?</span>
                     <svg class="w-5 h-5 text-white/40 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -194,7 +283,7 @@
                 </div>
             </details>
 
-            <details class="group border border-white/10 rounded-lg bg-white/60 overflow-hidden">
+            <details class="group border border-white/10 rounded-lg bg-white/5 overflow-hidden">
                 <summary class="px-5 py-3 cursor-pointer text-sm font-medium text-white hover:bg-mint/5 transition-colors flex items-center justify-between">
                     <span>How long does setup take?</span>
                     <svg class="w-5 h-5 text-white/40 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -205,7 +294,7 @@
             </details>
 
             <!-- Q&A Input -->
-            <details class="group border border-white/10 rounded-lg bg-white/60 overflow-hidden">
+            <details class="group border border-white/10 rounded-lg bg-white/5 overflow-hidden">
                 <summary class="px-5 py-3 cursor-pointer text-sm font-medium text-white hover:bg-mint/5 transition-colors flex items-center justify-between">
                     <span>Have another question?</span>
                     <svg class="w-5 h-5 text-white/40 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -217,7 +306,7 @@
                             id="qa-input"
                             data-testid="qa-input"
                             placeholder="Ask about Perioskoup..."
-                            class="flex-1 px-3 py-2 rounded-lg border border-white/20 bg-white focus:border-mint focus:ring-1 focus:ring-mint/30 outline-none text-sm"
+                            class="flex-1 px-3 py-2 rounded-lg border border-white/10 bg-white/5 text-white placeholder:text-white/40 focus:border-mint focus:ring-1 focus:ring-mint/30 outline-none text-sm"
                         >
                         <button type="submit" data-analytics="qa-submit" class="px-4 py-2 rounded-lg bg-nebula text-white text-sm font-medium hover:bg-nebula/90 transition-colors">
                             Send
@@ -261,5 +350,16 @@
             document.getElementById('navbar').classList.toggle('nav-scrolled', window.scrollY > 50);
         });
     </script>
+    <!-- Simple Footer -->
+    <footer class="py-8 border-t border-white/10" style="background: #0a171e;">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-white/40 text-sm">© 2026 Perioskoup. All rights reserved.</p>
+            <div class="flex gap-6 text-sm">
+                <a href="/privacy.html" class="text-white/50 hover:text-white transition-colors">Privacy</a>
+                <a href="/terms.html" class="text-white/50 hover:text-white transition-colors">Terms</a>
+                <a href="/" class="text-white/50 hover:text-white transition-colors">Home</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

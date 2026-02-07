@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Perioskoup - AI Dental Companion Built by Periodontists</title>
+
+    <meta name="description" content="Perioskoup was built by periodontists who were tired of repeating the same hygiene instructions. Meet our team and learn our story.">
+    <meta name="keywords" content="perioskoup team, dental AI company, periodontist software, Dr Anca Constantin, EFP Innovation Award">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://perioskoup.com/about">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://perioskoup.com/about">
+    <meta property="og:title" content="About Perioskoup | Built by Periodontists">
+    <meta property="og:description" content="Meet the team behind the award-winning AI dental companion.">
+    <meta property="og:image" content="https://perioskoup.com/og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@perioskoup">
+    <meta name="twitter:title" content="About Perioskoup | Built by Periodontists">
+    <meta name="twitter:description" content="Meet the team behind the award-winning AI dental companion.">
+    <meta name="twitter:image" content="https://perioskoup.com/og-image.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About Perioskoup",
+        "description": "Learn about Perioskoup, the AI dental companion built by periodontists",
+        "url": "https://perioskoup.com/about",
+        "mainEntity": {
+            "@type": "Organization",
+            "name": "Perioskoup",
+            "url": "https://perioskoup.com",
+            "foundingDate": "2024",
+            "award": "EFP Digital Innovation Award 2025 - 3rd Prize",
+            "founder": {
+                "@type": "Person",
+                "name": "Dr. Anca Laura Constantin",
+                "jobTitle": "Periodontist & Co-Founder"
+            }
+        }
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Gabarito:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { 900: '#050c11', 800: '#0a171e', 700: '#12222d', 600: '#1d3449', 500: '#234966' },
+                        lime: { 700: '#6faa29', 600: '#8ad33d', 500: '#c0e57a', 400: '#e0ffab' },
+                    },
+                    fontFamily: {
+                        heading: ['Dongle', 'sans-serif'],
+                        sans: ['Gabarito', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        nav.nav-scrolled { background-color: rgba(18, 34, 45, 0.95); backdrop-filter: blur(20px); }
+    </style>
+</head>
+<body class="text-white min-h-screen font-sans" style="background: linear-gradient(180deg, #234966 0%, #12222d 50%, #0a171e 100%);">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <a href="/" class="flex items-center gap-2 md:gap-3">
+                    <img src="/logo-brand.svg" alt="Perioskoup Logo" class="h-8 md:h-10 w-auto">
+                </a>
+                <div class="hidden md:flex items-center gap-1">
+                    <a href="/#how-it-works" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">How It Works</a>
+                    <a href="/#award" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Award</a>
+                    <a href="/#faq" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">FAQ</a>
+                    <a href="/#pricing" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Pricing</a>
+                    <a href="/blog/" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Blog</a>
+                    <a href="/calculator.html" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">ROI Calculator</a>
+                    <a href="/contact.html" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Contact</a>
+                </div>
+                <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden p-2 text-white/80 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-white/10" style="background: rgba(35, 73, 102, 0.98);">
+            <div class="px-4 py-4 space-y-1">
+                <a href="/#how-it-works" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">How It Works</a>
+                <a href="/#award" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">Award</a>
+                <a href="/#faq" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">FAQ</a>
+                <a href="/#pricing" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">Pricing</a>
+                <a href="/blog/" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">Blog</a>
+                <a href="/calculator.html" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">ROI Calculator</a>
+                <a href="/contact.html" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <nav aria-label="Breadcrumb" class="max-w-7xl mx-auto px-6 pt-20 md:pt-24">
+        <ol itemscope itemtype="https://schema.org/BreadcrumbList" class="flex flex-wrap items-center text-xs md:text-sm">
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="flex items-center">
+                <a itemprop="item" href="/" class="text-white/50 hover:text-white/70 transition-colors"><span itemprop="name">Home</span></a>
+                <meta itemprop="position" content="1" />
+            </li>
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="flex items-center">
+                <svg class="w-3 h-3 mx-2 text-white/30" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                <span itemprop="name" class="text-white/70">About</span>
+                <meta itemprop="position" content="2" />
+            </li>
+        </ol>
+    </nav>
+
+    <main class="pb-16" style="padding-top: 40px;">
+        <!-- Hero -->
+        <section class="max-w-4xl mx-auto px-6 text-center mb-20">
+            <h1 class="font-heading text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6">
+                Built by Periodontists,<br>
+                <span class="text-lime-500">For Periodontists</span>
+            </h1>
+            <p class="text-xl text-white/70 max-w-2xl mx-auto">
+                We were tired of repeating the same hygiene instructions visit after visit. So we built something to help.
+            </p>
+        </section>
+
+        <!-- Story -->
+        <section class="max-w-4xl mx-auto px-6 mb-20">
+            <div class="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8 md:p-12">
+                <h2 class="font-heading text-3xl font-bold text-white mb-6">Our Story</h2>
+                <div class="space-y-4 text-white/70">
+                    <p>
+                        Every periodontist knows the frustration: you spend 10-15 minutes at each recall explaining the same brushing techniques, the same interdental cleaning routine, the same dietary advice. Your patients nod along, leave the chair—and forget everything by the time they get home.
+                    </p>
+                    <p>
+                        Then they return months later with disease progression, and you start all over again.
+                    </p>
+                    <p>
+                        <strong class="text-white">We built Perioskoup to break this cycle.</strong> Our AI dental companion keeps patients on track between visits with personalized guidance, smart reminders, and progress tracking. When patients return, you can focus on actual treatment—not re-education.
+                    </p>
+                    <p>
+                        In 2025, Perioskoup was awarded <span class="text-amber-400 font-semibold">3rd Prize at the EFP Digital Innovation Award</span> at EuroPerio11 in Vienna. We're humbled by the recognition from the European Federation of Periodontology—and motivated to keep building.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team -->
+        <section class="max-w-4xl mx-auto px-6 mb-20">
+            <h2 class="font-heading text-3xl font-bold text-white text-center mb-12">Meet the Team</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Founder 1 -->
+                <div class="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8 text-center">
+                    <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-lime-500 to-lime-700 flex items-center justify-center text-3xl font-bold text-white">
+                        AC
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold text-white mb-1">Dr. Anca Laura Constantin</h3>
+                    <p class="text-lime-400 text-sm font-medium mb-4">Periodontist & Co-Founder</p>
+                    <p class="text-white/60 text-sm">
+                        Practicing periodontist with a passion for patient education. Frustrated by the cycle of repeat hygiene coaching, Anca envisioned an AI companion that could extend care beyond the chair.
+                    </p>
+                </div>
+
+                <!-- Founder 2 -->
+                <div class="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8 text-center">
+                    <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-navy-500 to-navy-700 flex items-center justify-center text-3xl font-bold text-white">
+                        EC
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold text-white mb-1">Eduard Ciugulea</h3>
+                    <p class="text-lime-400 text-sm font-medium mb-4">Technical Co-Founder</p>
+                    <p class="text-white/60 text-sm">
+                        Full-stack developer with 5+ years building web applications. Eduard brings the technical expertise to turn clinical insights into a powerful, user-friendly platform.
+                    </p>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8 text-center">
+                    <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-lime-600 to-navy-600 flex items-center justify-center text-3xl font-bold text-white">
+                        PN
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold text-white mb-1">Petrica Nancu</h3>
+                    <p class="text-lime-400 text-sm font-medium mb-4">Advisor</p>
+                    <p class="text-white/60 text-sm">
+                        Bringing strategic guidance and expertise to help Perioskoup grow and reach more dental practices.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values -->
+        <section class="max-w-4xl mx-auto px-6 mb-20">
+            <h2 class="font-heading text-3xl font-bold text-white text-center mb-12">What We Believe</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6">
+                    <div class="w-12 h-12 rounded-lg bg-lime-500/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-lime-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-white mb-2">Clinician-First</h3>
+                    <p class="text-white/60 text-sm">Built by clinicians who understand real practice challenges. We don't add complexity—we reduce it.</p>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6">
+                    <div class="w-12 h-12 rounded-lg bg-lime-500/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-lime-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-white mb-2">Privacy-First</h3>
+                    <p class="text-white/60 text-sm">GDPR compliant from day one. Patient data is encrypted, secure, and never sold. Trust is non-negotiable.</p>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6">
+                    <div class="w-12 h-12 rounded-lg bg-lime-500/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-lime-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-white mb-2">Outcome-Focused</h3>
+                    <p class="text-white/60 text-sm">We measure success by patient outcomes—fewer relapses, better compliance, healthier gums.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Award -->
+        <section class="max-w-4xl mx-auto px-6 mb-20">
+            <div class="bg-gradient-to-r from-amber-500/10 to-amber-600/5 rounded-2xl border border-amber-500/20 p-8 md:p-12 text-center">
+                <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-amber-500/20 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                    </svg>
+                </div>
+                <h2 class="font-heading text-3xl font-bold text-white mb-4">EFP Digital Innovation Award 2025</h2>
+                <p class="text-amber-400 font-semibold mb-4">3rd Prize at EuroPerio11 Vienna</p>
+                <p class="text-white/60 max-w-xl mx-auto">
+                    Recognized by the European Federation of Periodontology for advancing digital innovation in periodontics.
+                </p>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="font-heading text-3xl font-bold text-white mb-4">Join Our Founding Clinics</h2>
+            <p class="text-white/60 mb-8 max-w-xl mx-auto">
+                We're looking for forward-thinking dental practices to shape the future of patient care.
+            </p>
+            <a href="/signup.html" class="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-semibold transition-all hover:shadow-lg hover:shadow-lime-500/30 hover:-translate-y-0.5" style="background: linear-gradient(135deg, #8ad33d 0%, #6faa29 100%);">
+                Apply as a Founding Dentist
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/10" style="background: #0a171e;">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-white/40 text-sm">© 2026 Perioskoup. All rights reserved.</p>
+            <div class="flex gap-6 text-sm">
+                <a href="/privacy.html" class="text-white/50 hover:text-white transition-colors">Privacy</a>
+                <a href="/terms.html" class="text-white/50 hover:text-white transition-colors">Terms</a>
+                <a href="/" class="text-white/50 hover:text-white transition-colors">Home</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            document.getElementById('navbar').classList.toggle('nav-scrolled', window.scrollY > 50);
+        });
+    </script>
+</body>
+</html>
