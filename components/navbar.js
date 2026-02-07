@@ -4,7 +4,6 @@
 export function getNavbar(options = {}) {
   const { isHomepage = false } = options;
   const prefix = isHomepage ? '' : '/';
-  const homePrefix = isHomepage ? '#' : '/#';
 
   return `
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
@@ -15,7 +14,6 @@ export function getNavbar(options = {}) {
                 </a>
                 <div class="hidden md:flex items-center gap-1">
                     <a href="/features.html" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Features</a>
-                    <a href="${homePrefix}how-it-works" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">How It Works</a>
                     <a href="/about.html" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">About</a>
                     <a href="/blog/" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Blog</a>
                     <a href="/contact.html" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">Contact</a>
@@ -30,7 +28,6 @@ export function getNavbar(options = {}) {
         <div id="mobile-menu" class="hidden md:hidden border-t border-white/10" style="background: rgba(35, 73, 102, 0.98);">
             <div class="px-4 py-4 space-y-1">
                 <a href="/features.html" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">Features</a>
-                <a href="${homePrefix}how-it-works" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">How It Works</a>
                 <a href="/about.html" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">About</a>
                 <a href="/blog/" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">Blog</a>
                 <a href="/contact.html" class="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg">Contact</a>
