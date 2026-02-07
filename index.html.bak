@@ -739,6 +739,37 @@
         </div>
     </section>
 
+    <!-- @testimonial -->
+    <section class="py-24 text-white relative overflow-hidden" style="background: linear-gradient(180deg, #0a171e 0%, #12222d 100%);">
+        <!-- Abstract Decoration -->
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-b from-mint/10 to-transparent blur-3xl opacity-30 rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+
+            <div class="scroll-item mb-12 flex justify-center">
+                <div class="flex gap-8 items-center justify-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="mdi:tooth-outline" class="iconify text-4xl text-mint iconify--mdi"><path fill="currentColor" d="M7 2C4 2 2 5 2 8c0 2.11 1 5 2 6s2 8 4 8c4.54 0 2-7 4-7s-.54 7 4 7c2 0 3-7 4-8s2-3.89 2-6c0-3-2-6-5-6s-3 1-5 1s-2-1-5-1m0 2c2 0 3 1 5 1s3-1 5-1c1.67 0 3 2 3 4c0 1.75-.86 4.11-1.81 5.06c-.86.86-2.13 6.88-2.69 6.88c-.21 0-.5-1.06-.5-2.35c0-2.04-.57-4.59-3-4.59s-3 2.55-3 4.59c0 1.29-.29 2.35-.5 2.35c-.56 0-1.83-6.02-2.69-6.88C4.86 12.11 4 9.75 4 8c0-2 1.33-4 3-4"></path></svg>
+                    <span class="font-bold text-xl tracking-tighter">EFP</span>
+                    <div class="h-8 w-[1px] bg-white/20"></div>
+                     <span class="text-sm font-semibold uppercase tracking-widest text-mint">Innovation Award Winner</span>
+                </div>
+            </div>
+
+            <figure class="scroll-item">
+                <blockquote class="text-2xl md:text-3xl font-medium tracking-tight leading-snug mb-10 text-rice">
+                    "We built Perioskoup because I was tired of repeating the same hygiene instructions visit after visit. Our goal is to give patients the guidance they need between appointments—so when they return, we can focus on care, not re-education."
+                </blockquote>
+                <figcaption class="flex flex-col items-center gap-3">
+                    <div class="w-14 h-14 bg-gradient-to-br from-mint to-nebula rounded-full flex items-center justify-center text-white font-bold text-lg ring-4 ring-white/10">AC</div>
+                    <div class="text-center">
+                        <div class="font-semibold text-lg text-white">Dr. Anca Constantin</div>
+                        <div class="text-pale text-sm">Periodontist & Co-Founder</div>
+                    </div>
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
     <!-- @award -->
     <section id="award" class="py-24 lg:py-32 relative overflow-hidden" style="background: linear-gradient(180deg, #12222d 0%, #0a171e 100%);">
         <!-- Background decoration -->
