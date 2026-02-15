@@ -1,3 +1,40 @@
+@import "tailwindcss";
+
+/* ========================================
+   PERIOSKOUP BRAND THEME OVERRIDES
+   Remap Tailwind lime → brand greens
+   Remap navy → brand blues
+   ======================================== */
+@theme {
+  --color-lime-50: #f5f9ea;
+  --color-lime-100: #f3fcde;
+  --color-lime-200: #eeffcc;
+  --color-lime-300: #e0ffab;
+  --color-lime-400: #c0e57a;
+  --color-lime-500: #8ad33d;
+  --color-lime-600: #6faa29;
+  --color-lime-700: #5a8c20;
+  --color-lime-800: #466d18;
+  --color-lime-900: #345210;
+
+  --color-navy-50: #e8eef4;
+  --color-navy-100: #c5d4e3;
+  --color-navy-200: #9db5ce;
+  --color-navy-300: #7596b8;
+  --color-navy-400: #5580a6;
+  --color-navy-500: #3578aa;
+  --color-navy-600: #2f5f84;
+  --color-navy-700: #234966;
+  --color-navy-800: #1d3449;
+  --color-navy-900: #12222d;
+  --color-navy-950: #0a171e;
+
+  --color-mint: #8ad33d;
+  --color-darkgreen: #6faa29;
+  --color-nebula: #0a171e;
+  --color-pale: #c5d4e3;
+}
+
 /* ========================================
    MOTION DESIGN TOKENS
    ======================================== */
@@ -25,6 +62,10 @@
 /* Base styles adjustments */
 body {
   font-family: 'Gabarito', sans-serif;
+}
+
+.font-dongle {
+  font-family: 'Dongle', sans-serif;
 }
 
 /* ========================================
@@ -154,16 +195,19 @@ body {
 .hero-connected-word {
   display: inline-block;
   animation: heroConnectedPulse 2.5s ease-in-out infinite;
+  text-shadow: 0 0 20px rgba(192, 229, 122, 0.4), 0 0 40px rgba(192, 229, 122, 0.1);
 }
 
 @keyframes heroConnectedPulse {
   0%, 100% {
     opacity: 1;
     transform: scale(1);
+    text-shadow: 0 0 20px rgba(192, 229, 122, 0.4), 0 0 40px rgba(192, 229, 122, 0.1);
   }
   50% {
-    opacity: 0.75;
-    transform: scale(1.02);
+    opacity: 0.85;
+    transform: scale(1.03);
+    text-shadow: 0 0 30px rgba(192, 229, 122, 0.6), 0 0 60px rgba(192, 229, 122, 0.25);
   }
 }
 
@@ -218,15 +262,15 @@ body {
   z-index: 10;
 }
 
-/* Tilted Phone Styling */
+/* Tilted Phone Styling — left edge forward */
 .hero-phone {
-  transform: rotate(-6deg) perspective(1000px) rotateY(-12deg) rotateX(5deg);
+  transform: perspective(1200px) rotateY(-12deg) rotateX(2deg);
   filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.4));
   transition: transform 0.5s ease-out, filter 0.5s ease-out;
 }
 
 .hero-phone:hover {
-  transform: rotate(0deg) perspective(1000px) rotateY(0deg) rotateX(0deg);
+  transform: perspective(1200px) rotateY(-6deg) rotateX(1deg);
 }
 
 /* Custom Scrollbar */
@@ -547,6 +591,14 @@ nav {
     background-color var(--duration-medium) var(--ease-out),
     box-shadow var(--duration-medium) var(--ease-out),
     backdrop-filter var(--duration-medium) var(--ease-out);
+}
+
+@media (max-width: 767px) {
+  nav {
+    background-color: rgba(18, 34, 45, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
 }
 
 nav.nav-scrolled {
@@ -1129,12 +1181,12 @@ textarea:focus-visible {
   
   /* Hero phone - slightly larger on mobile */
   .hero-phone {
-    transform: rotate(-3deg) perspective(800px) rotateY(-5deg) rotateX(2deg);
+    transform: perspective(800px) rotateY(-8deg) rotateX(2deg);
     max-height: 350px;
   }
   
   .hero-phone:hover {
-    transform: rotate(-3deg) perspective(800px) rotateY(-5deg) rotateX(2deg);
+    transform: perspective(800px) rotateY(-8deg) rotateX(2deg);
   }
   
   /* Section spacing - tighter on mobile */
@@ -1310,4 +1362,237 @@ textarea:focus-visible {
   html {
     -webkit-overflow-scrolling: touch;
   }
+}
+
+/* ========================================
+   PHONE SCREEN INTRO ANIMATIONS
+   ======================================== */
+
+.phone-logo-anim {
+  opacity: 0;
+  transform: scale(0.5);
+  animation: phoneLogoIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards,
+             phoneLogoPulse 2s ease-in-out 1.2s 2;
+}
+
+.phone-title-anim {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: phoneSlideUp 0.6s ease-out 1.0s forwards;
+}
+
+.phone-subtitle-anim {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: phoneSlideUp 0.5s ease-out 1.4s forwards;
+}
+
+.phone-role-label-anim {
+  opacity: 0;
+  animation: phoneFadeIn 0.4s ease-out 1.8s forwards;
+}
+
+.phone-btn-patient-anim {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: phoneBtnIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 2.1s forwards;
+}
+
+.phone-btn-dentist-anim {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: phoneBtnIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 2.4s forwards;
+}
+
+@keyframes phoneLogoIn {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes phoneLogoPulse {
+  0%, 100% { filter: drop-shadow(0 0 0 transparent); }
+  50% { filter: drop-shadow(0 0 12px rgba(192,229,122,0.4)); }
+}
+
+@keyframes phoneSlideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes phoneFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes phoneBtnIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================
+   WEEK TIMELINE — "A Week in Two Practices"
+   ======================================== */
+
+.week-timeline-section {
+  background: transparent;
+}
+
+#timeline-particles {
+  width: 100%;
+  height: 100%;
+}
+
+/* Timeline day rows */
+.timeline-day {
+  position: relative;
+}
+
+/* Mobile timeline improvements */
+@media (max-width: 1023px) {
+  .timeline-card {
+    transform: translateX(0) !important;
+  }
+  .timeline-track-mobile {
+    display: none !important;
+  }
+}
+
+/* Timeline cards — hidden by default, revealed by GSAP */
+.timeline-card {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.timeline-card-problem {
+  transform: translateX(-50px);
+}
+
+.timeline-card-solution {
+  transform: translateX(50px);
+}
+
+/* When revealed */
+.timeline-card.revealed {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Data point badges */
+.timeline-data-point {
+  opacity: 0;
+  transform: translateY(10px);
+  position: relative;
+  z-index: 20;
+}
+
+.timeline-data-point.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease-out 0.3s, transform 0.5s ease-out 0.3s;
+}
+
+/* Timeline dot active state */
+.timeline-dot.active {
+  background: #84cc16 !important;
+  border-color: #a3e635 !important;
+  box-shadow: 0 0 15px rgba(132, 204, 22, 0.6), 0 0 30px rgba(132, 204, 22, 0.2);
+}
+
+.timeline-dot.active .timeline-dot-ping {
+  animation: timelineDotPing 1.5s cubic-bezier(0, 0, 0.2, 1) 1;
+}
+
+@keyframes timelineDotPing {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+.timeline-day-label.active {
+  color: #a3e635 !important;
+}
+
+/* Results bar items */
+.timeline-result-item {
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+}
+
+.timeline-result-item.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reduced motion — show everything immediately */
+@media (prefers-reduced-motion: reduce) {
+  .timeline-card,
+  .timeline-data-point,
+  .timeline-result-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  #timeline-fill,
+  #timeline-fill-mobile {
+    height: 100% !important;
+  }
+
+  .timeline-dot {
+    background: #84cc16 !important;
+    border-color: #a3e635 !important;
+  }
+
+  #timeline-particles {
+    display: none;
+  }
+}
+
+/* Mobile timeline adjustments */
+@media (max-width: 1023px) {
+  .timeline-card-problem,
+  .timeline-card-solution {
+    transform: translateY(20px);
+  }
+
+  .timeline-card.revealed {
+    transform: translateY(0);
+  }
+}
+
+/* Notification cards start after phone intro (3.5s delay) */
+.card-p1 { animation-delay: 3.5s !important; }
+.card-p2 { animation-delay: 4.7s !important; }
+.card-p3 { animation-delay: 5.9s !important; }
+.card-d1 { animation-delay: 4.1s !important; }
+.card-d2 { animation-delay: 5.3s !important; }
+.card-d3 { animation-delay: 6.5s !important; }
+
+/* ========================================
+   HERO PHONE PREMIUM ANIMATIONS
+   ======================================== */
+
+/* Phone entrance - rises from below */
+.hero-phone {
+  transform: perspective(1200px) rotateY(-12deg) rotateX(2deg) translateY(60px);
+  opacity: 0;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease-out;
+}
+
+.hero-phone.phone-entrance {
+  transform: perspective(1200px) rotateY(-12deg) rotateX(2deg) translateY(0);
+  opacity: 1;
+}
+
+/* Notification cards - hidden until .show */
+.interaction-card {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.interaction-card.show {
+  opacity: 1;
+  transform: scale(1);
 }

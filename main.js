@@ -1,6 +1,7 @@
 import './style.css';
 import { animate, inView, stagger } from 'motion';
 import { initNavbar } from './components/navbar.js';
+import './hero-phone-interactions.js';
 
 // Check for reduced motion preference
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -33,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFormHandler();
   initModal();
   initPhoneJourney();
+  initWeekTimeline();
 });
 
 // ========================================
@@ -959,6 +961,199 @@ function initPhoneJourney() {
 }
 
 // ========================================
+// WEEK TIMELINE — Scroll-triggered "A Week in Two Practices"
+// ========================================
+function initWeekTimeline() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const timeline = document.getElementById('week-timeline');
+  if (!timeline) return;
+
+  // Respect reduced motion
+  if (prefersReducedMotion) {
+    // Show everything immediately
+    timeline.querySelectorAll('.timeline-card, .timeline-data-point, .timeline-result-item').forEach(el => {
+      el.classList.add('revealed');
+    });
+    timeline.querySelectorAll('.timeline-dot').forEach(dot => dot.classList.add('active'));
+    timeline.querySelectorAll('.timeline-day-label').forEach(label => label.classList.add('active'));
+    return;
+  }
+
+  const fill = document.getElementById('timeline-fill');
+  const fillMobile = document.getElementById('timeline-fill-mobile');
+  const days = timeline.querySelectorAll('.timeline-day');
+
+  // 1. Timeline line draw — tied to scroll progress
+  if (fill) {
+    ScrollTrigger.create({
+      trigger: timeline,
+      start: 'top 80%',
+      end: 'bottom 20%',
+      onUpdate: (self) => {
+        fill.style.height = `${self.progress * 100}%`;
+        if (fillMobile) fillMobile.style.height = `${self.progress * 100}%`;
+      }
+    });
+  }
+
+  // 2. Per-day animations
+  days.forEach((day) => {
+    const cards = day.querySelectorAll('.timeline-card');
+    const dataPoint = day.querySelector('.timeline-data-point');
+    const dots = day.querySelectorAll('.timeline-dot');
+    const labels = day.querySelectorAll('.timeline-day-label');
+
+    ScrollTrigger.create({
+      trigger: day,
+      start: 'top 75%',
+      once: true,
+      onEnter: () => {
+        // Activate dots
+        dots.forEach(dot => dot.classList.add('active'));
+        labels.forEach(label => label.classList.add('active'));
+
+        // Reveal cards with stagger
+        cards.forEach((card, i) => {
+          setTimeout(() => card.classList.add('revealed'), i * 150);
+        });
+
+        // Reveal data point
+        if (dataPoint) {
+          setTimeout(() => dataPoint.classList.add('revealed'), cards.length * 150 + 200);
+        }
+
+        // Counter animation for data points
+        const counters = day.querySelectorAll('[data-count-to]');
+        counters.forEach(el => {
+          const target = parseFloat(el.dataset.countTo);
+          const suffix = el.dataset.countSuffix || '';
+          const duration = 1200;
+          const start = performance.now();
+
+          function tick(now) {
+            const p = Math.min((now - start) / duration, 1);
+            const ease = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(target * ease) + suffix;
+            if (p < 1) requestAnimationFrame(tick);
+          }
+          setTimeout(() => requestAnimationFrame(tick), cards.length * 150 + 400);
+        });
+      }
+    });
+  });
+
+  // 3. Results bar animation
+  const resultItems = document.querySelectorAll('.timeline-result-item');
+  if (resultItems.length) {
+    ScrollTrigger.create({
+      trigger: '.timeline-results',
+      start: 'top 80%',
+      once: true,
+      onEnter: () => {
+        resultItems.forEach((item, i) => {
+          setTimeout(() => item.classList.add('revealed'), i * 120);
+        });
+
+        // Counter animation for result stats
+        document.querySelectorAll('.timeline-results [data-count-to]').forEach(el => {
+          const target = parseFloat(el.dataset.countTo);
+          const suffix = el.dataset.countSuffix || '';
+          const duration = 1200;
+          const start = performance.now();
+
+          function tick(now) {
+            const p = Math.min((now - start) / duration, 1);
+            const ease = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(target * ease) + suffix;
+            if (p < 1) requestAnimationFrame(tick);
+          }
+          setTimeout(() => requestAnimationFrame(tick), 600);
+        });
+      }
+    });
+  }
+
+  // 4. Particle effect — subtle lime dots on the right side
+  initTimelineParticles();
+}
+
+function initTimelineParticles() {
+  const canvas = document.getElementById('timeline-particles');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let animId;
+  const maxParticles = 30;
+
+  function resize() {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+  }
+
+  function createParticle() {
+    // Spawn on the right half (solution side)
+    return {
+      x: canvas.width * 0.55 + Math.random() * canvas.width * 0.4,
+      y: canvas.height * Math.random(),
+      size: Math.random() * 2 + 0.5,
+      speedY: -(Math.random() * 0.3 + 0.1),
+      speedX: (Math.random() - 0.5) * 0.2,
+      opacity: Math.random() * 0.3 + 0.1,
+      life: 0,
+      maxLife: 200 + Math.random() * 300
+    };
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    if (particles.length < maxParticles && Math.random() < 0.1) {
+      particles.push(createParticle());
+    }
+
+    particles = particles.filter(p => {
+      p.x += p.speedX;
+      p.y += p.speedY;
+      p.life++;
+
+      const lifeRatio = p.life / p.maxLife;
+      const alpha = lifeRatio < 0.1 ? lifeRatio * 10 : lifeRatio > 0.8 ? (1 - lifeRatio) * 5 : 1;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(132, 204, 22, ${p.opacity * alpha})`;
+      ctx.fill();
+
+      return p.life < p.maxLife;
+    });
+
+    animId = requestAnimationFrame(draw);
+  }
+
+  // Only run particles when section is in view
+  const section = canvas.closest('section');
+  if (section && typeof ScrollTrigger !== 'undefined') {
+    ScrollTrigger.create({
+      trigger: section,
+      start: 'top bottom',
+      end: 'bottom top',
+      onEnter: () => { resize(); draw(); },
+      onLeave: () => { cancelAnimationFrame(animId); particles = []; },
+      onEnterBack: () => { resize(); draw(); },
+      onLeaveBack: () => { cancelAnimationFrame(animId); particles = []; }
+    });
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+}
+
+// ========================================
 // TRANSFORMATION SECTION ANIMATIONS
 // ========================================
 
@@ -1191,7 +1386,7 @@ function initTransformationAnimations() {
   initStatCounters();
   initStaggeredReveal();
   initResultsBar();
-  initTheDivide();
+  // initTheDivide() — replaced by initWeekTimeline()
   
   // Card entrance animations
   const cards = document.querySelectorAll('.card-enter-left, .card-enter-right');
